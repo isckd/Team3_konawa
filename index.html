@@ -41,9 +41,18 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">Welcome To Our Studio!</div>
-                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+                <div class="row">
+                    <div class="col">
+                        <div class="masthead-subheading">복지에 기술을 더해</div>
+                        <div class="masthead-heading text-uppercase">특별한 복지의 시작</div>
+                        <div class="masthead-heading text-uppercase">KONA BIZ로부터</div>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+               
+                <!-- <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a> -->
             </div>
         </header>
 
@@ -420,8 +429,8 @@
         <section class="page-section" id="contact">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">문의 하기</h2>
+                    <h3 class="section-subheading" style="color: aliceblue;">궁금한 사항을 물어보세요!</h3>
                 </div>
                 <!-- * * * * * * * * * * * * * * *-->
                 <!-- * * SB Forms Contact Form * *-->
@@ -435,26 +444,38 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <!-- Name input-->
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                <input class="form-control" id="company" type="text" placeholder="회사명 *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="company:required">회사명을 입력해주세요.</div>
                             </div>
                             <div class="form-group">
-                                <!-- Email address input-->
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                <input class="form-control" id="people" type="number" placeholder="인원수 *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="people:required">인원수를 입력해주세요.</div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="name" type="text" placeholder="담당자 이름 *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="name:required">담당자 이름을 입력해주세요.</div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="email" type="email" placeholder="회사메일 *" data-sb-validations="required,email" />
+                                <div class="invalid-feedback" data-sb-feedback="email:required">메일을 입력해주세요.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">이메일이 유효하지 않습니다.</div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="addr" type="text" placeholder="회사 주소 *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="addr:required">회사 주소를 입력해주세요.</div>
                             </div>
                             <div class="form-group mb-md-0">
-                                <!-- Phone number input-->
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                
+                                <input class="form-control" id="addr" type="text" placeholder="회사 주소 *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="addr:required">회사 주소를 입력해주세요.</div>
                             </div>
+                            
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-textarea mb-md-0">
                                 <!-- Message input-->
-                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                <textarea class="form-control" id="message" placeholder="문의사항 *" data-sb-validations="required"></textarea>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">문의사항을 입력해주세요.</div>
                             </div>
                         </div>
                     </div>
@@ -464,10 +485,10 @@
                     <!-- has successfully submitted-->
                     <div class="d-none" id="submitSuccessMessage">
                         <div class="text-center text-white mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
+                            <div class="fw-bolder">문의 메일이 성공적으로 전송되었습니다.</div>
+                            조금만 기다려 주세요!
                             <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                            
                         </div>
                     </div>
                     <!-- Submit error message-->
