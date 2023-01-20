@@ -48,13 +48,21 @@ window.addEventListener('DOMContentLoaded', event => {
 
 
 
-// 추가한 js
+// owl carousel js
 function MySlider1__init() {
     $('.my-slider-1 > .owl-carousel').owlCarousel({
       responsive:{
-        0:{
+        1000:{
           items:5,
           margin:50
+        },
+        600:{
+            items:4,
+            margin:20
+        },
+        0:{
+            items:3,
+            margin:5
         }
       },
       autoWidth:false,
@@ -64,9 +72,37 @@ function MySlider1__init() {
       smartSpeed: 2000,
       loop:true,
       dots:false,
-      nav:true,
-      navText: ["◀","▶"],
       
     });
   }
   MySlider1__init();
+
+  // owl carousel js
+function MySlider2__init() {
+    $('.my-slider-2 > .owl-carousel').owlCarousel({
+      responsive:{
+        1000:{
+          items:5,
+          margin:50
+        },
+        600:{
+            items:4,
+            margin:20
+        },
+        0:{
+            items:3,
+            margin:5
+        }
+      },
+      autoWidth:false,
+      autoplay:true, // 오토 플레이
+      autoplayTimeout:1500, // 오토 플레이 시에 다음 슬라이드로 넘어가는 주기
+      autoplayHoverPause:false, /* 필수 */
+      smartSpeed: 2000,
+      loop:true,
+      dots:false,
+      rtl:true
+      
+    });
+  }
+  MySlider2__init();
