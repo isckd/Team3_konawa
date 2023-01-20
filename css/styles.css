@@ -44,6 +44,10 @@
   right:auto;
 }
 
+.active {
+   box-shadow: 14px 14px 14px 14px rgba(10,10,10,0.20);
+}
+
 
 
 

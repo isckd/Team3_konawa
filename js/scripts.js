@@ -53,14 +53,20 @@ function MySlider1__init() {
     $('.my-slider-1 > .owl-carousel').owlCarousel({
       responsive:{
         0:{
-          items:5
+          items:5,
+          margin:50
         }
       },
+      autoWidth:false,
+      autoplay:true, // 오토 플레이
+      autoplayTimeout:1500, // 오토 플레이 시에 다음 슬라이드로 넘어가는 주기
+      autoplayHoverPause:false, /* 필수 */
+      smartSpeed: 2000,
       loop:true,
       dots:false,
       nav:true,
       navText: ["◀","▶"],
-      center:true
+      
     });
   }
   MySlider1__init();
