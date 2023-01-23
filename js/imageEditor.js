@@ -1,6 +1,6 @@
 const container = document.getElementById("image-editor");
 const config = {
-  source: "https://scaleflex.cloudimg.io/v7/demo/river.png"
+  source: "../assets/img/example-card/1.png"
 };
 const ImageEditor = new window.FilerobotImageEditor(container, config);
 
