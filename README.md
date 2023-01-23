@@ -1,8 +1,8 @@
 # Team3_konawa
 <h1>진행상황_진욱</h1>
 이미지 에디터(filerobot) 기본 틀 잡아놓음.  -> 기본페이지 navbar의 CUSTOMIZING 탭<br>
-3D VIEW 기본 틀 잡아놓음. -> 기본페이지 navbar의 3D VIEW 탭
-이외 화려한 효과들 테스트 
+3D VIEW 기본 틀 잡아놓음. -> 기본페이지 navbar의 3D VIEW 탭<br>
+이외 화려한 효과들 테스트 중
 
 
 <h1>개발환경이 아닌 파일을 받아서 실행할 때, 유의사항</h1>
