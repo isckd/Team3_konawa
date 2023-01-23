@@ -1,5 +1,5 @@
 # Team3_konawa
-# 진행상황 공유_진욱
+# 진행상황 공유
 - 이미지 에디터(filerobot) 기본 틀 잡아놓음.  -> 기본페이지 navbar의 CUSTOMIZING 탭<br>
 - 3D VIEW(three.js) 대충 기본 틀 잡아놓음. -> 기본페이지 navbar의 3D VIEW 탭<br>
 - 이외 화려한 효과들 테스트 중
