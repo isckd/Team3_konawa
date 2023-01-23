@@ -1,0 +1,429 @@
+<!--
+사용자 입력 사진 자르기, 입히기 
+회전 멈추고 카드 각도 되돌리기,-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>3D 카드</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="./css/3D_Card.css">
+	</head>
+	<body>
+		<input type="color" id="groundColor-input" value="#A0A0A0">
+		<button id="groundColor-button">ground_Color</button>
+		<button id="groundColor-reset">reset</button>
+		<br>
+		<input type="color" id="backColor-input" value="#A0A0A0">
+		<button id="backColor-button">background_Color</button>
+		<button id="backColor-reset">reset</button>
+
+		<span id="drop-area">
+			<h1>여기에 파일 드랍</h1>
+		</span>
+
+		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "../build/three.module.js",
+					"three/addons/": "./jsm/"
+				}
+			}
+		</script>
+
+		<script type="module">
+
+			import * as THREE from 'three';
+			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+			import { PLYExporter } from 'three/addons/exporters/PLYExporter.js';
+			import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+			
+
+			let scene, camera, renderer, exporter, exporter2, mesh, mesh2, mesh3, mesh4, mesh5, mesh6;
+
+			const params = {
+				animate: true,
+				pause: false,
+				exportASCII: exportASCII,
+				exportBinaryBigEndian: exportBinaryBigEndian,
+				exportBinaryLittleEndian: exportBinaryLittleEndian
+			};
+
+			init();
+			animate();
+			var count = 0;
+			function init() {
+				// 너비 줄이기 var innerWidth = window.innerWidth * 0.75;
+				// camera = new THREE.PerspectiveCamera( 45, innerWidth / window.innerHeight, 1, 1000 );
+				exporter = new PLYExporter();
+				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
+				camera.position.set( 200, 100, 200 );
+				
+				
+				scene = new THREE.Scene();
+				scene.background = new THREE.Color( "#A0A0A0" );
+				scene.fog = new THREE.Fog( "#A0A0A0", 200, 1000 );
+
+				// backcolor 버튼
+				var backColorButton = document.getElementById("backColor-button");
+				var backColorInput = document.getElementById("backColor-input");
+				backColorButton.addEventListener("click", function() {
+					var color = backColorInput.value;
+					scene.background = new THREE.Color( color );
+					scene.fog = new THREE.Fog( color, 200, 1000 );
+				});
+			
+				var colorButton = document.getElementById("backColor-reset");
+				colorButton.addEventListener("click", function() {
+					scene.background = new THREE.Color( 0xa0a0a0 );
+					scene.fog = new THREE.Fog( 0xa0a0a0, 200, 1000 );
+					backColorInput.value = "#A0A0A0";
+				});
+				//---------------------------------------------
+				
+				// light, 빛 쏴줘서 음영 및 그림자
+				const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444 );
+				hemiLight.position.set( 0, 200, 0 );
+				scene.add( hemiLight );
+
+				const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+				directionalLight.position.set( -100, 200, 100 );
+				directionalLight.castShadow = true;
+				directionalLight.shadow.camera.top = 300;
+				directionalLight.shadow.camera.bottom = - 400;
+				directionalLight.shadow.camera.left = - 220;
+				directionalLight.shadow.camera.right = 220;
+				scene.add( directionalLight );
+				//------------------------------------------------
+
+				// ground, ground color 버튼
+				const ground = new THREE.Mesh(
+					new THREE.PlaneGeometry( 2000, 2000 ),
+					new THREE.MeshPhongMaterial( { color: 0x999999, depthWrite: false } )
+				);
+				ground.rotation.x = - Math.PI / 2;
+				ground.position.y = - 75;
+				ground.receiveShadow = true;
+				scene.add( ground );
+
+				var groundColorButton = document.getElementById("groundColor-button");
+				var groundColorInput = document.getElementById("groundColor-input");
+				groundColorButton.addEventListener("click", function() {
+					var color = groundColorInput.value;
+					ground.material.color.set(color);
+				});
+			
+				var groundColorButton = document.getElementById("groundColor-reset");
+				groundColorButton.addEventListener("click", function() {
+					ground.material.color.set(0x999999);
+					groundColorInput.value = "#A0A0A0";
+				});
+				//------------------------------------------------------
+
+				//grid
+				const grid = new THREE.GridHelper( 2000, 20, 0x000000, 0x000000 );
+				grid.material.opacity = 0.2;
+				grid.material.transparent = true;
+				grid.position.y = - 75;
+				scene.add( grid );
+				//-------------------------------------------------
+
+				// shapeGeometry 를 사용해서 모서리가 둥근 카드 모양 만들기
+				let x = 1; let y = 1; let width = 53.98; let height = 85.6; let radius = 1.5; 
+				let shape = new THREE.Shape();
+				shape.moveTo( x, y + radius );
+				shape.lineTo( x, y + height - radius );
+				shape.quadraticCurveTo( x, y + height, x + radius, y + height );
+				shape.lineTo( x + width - radius, y + height );
+				shape.quadraticCurveTo( x + width, y + height, x + width, y + height - radius );
+				shape.lineTo( x + width, y + radius );
+				shape.quadraticCurveTo( x + width, y, x + width - radius, y );
+				shape.lineTo( x + radius, y );
+				shape.quadraticCurveTo( x, y, x, y + radius );
+				//-----------------------------------------------
+
+				// geometry에 모양 적용하고, 이미지 삽입해 mesh에 저장
+				var geometry = new THREE.ShapeGeometry(shape);
+				const texture = new THREE.TextureLoader().load('./assets/img/example-card/1.png');
+				const texture2 = new THREE.TextureLoader().load('./assets/img/example-card/2.png');
+				var material =  new THREE.MeshBasicMaterial( {map: texture, side: THREE.FrontSide});
+				var material2 =  new THREE.MeshBasicMaterial( {map: texture2, side: THREE.BackSide});
+				mesh = new THREE.Mesh( geometry, material );
+				mesh2 = new THREE.Mesh( geometry, material2 );
+
+				const texture3 = new THREE.TextureLoader().load('./assets/img/example-card/1.png');
+				const texture4 = new THREE.TextureLoader().load('./assets/img/example-card/2.png');
+				var material3 =  new THREE.MeshBasicMaterial( {map: texture3, side: THREE.FrontSide});
+				var material4 =  new THREE.MeshBasicMaterial( {map: texture4, side: THREE.BackSide});
+				mesh3 = new THREE.Mesh( geometry, material3 );
+				mesh4 = new THREE.Mesh( geometry, material4 );
+
+				const texture5 = new THREE.TextureLoader().load('./assets/img/example-card/1.png');
+				const texture6 = new THREE.TextureLoader().load('./assets/img/example-card/2.png');
+				var material5 =  new THREE.MeshBasicMaterial( {map: texture5, side: THREE.FrontSide});
+				var material6 =  new THREE.MeshBasicMaterial( {map: texture6, side: THREE.BackSide});
+				mesh5 = new THREE.Mesh( geometry, material5 );
+				mesh6 = new THREE.Mesh( geometry, material6 );
+				
+				//-------------------------------------------------
+
+				// shapeGeometry 에서 이미지 적용하기 위한 추가 설정 코드
+				var box = new THREE.Box3().setFromObject(mesh); var box2 = new THREE.Box3().setFromObject(mesh3); var box3 = new THREE.Box3().setFromObject(mesh5);
+				var size = new THREE.Vector3();
+				box.getSize(size); box2.getSize(size); box3.getSize(size);
+				var vec3 = new THREE.Vector3(); // temp vector
+				var attPos = mesh.geometry.attributes.position; var attPos2 = mesh3.geometry.attributes.position; var attPos3 = mesh5.geometry.attributes.position;
+				var attUv = mesh.geometry.attributes.uv; var attUv2 = mesh3.geometry.attributes.uv; var attUv3 = mesh5.geometry.attributes.uv;
+				for (let i = 0; i < attPos.count; i++){
+					vec3.fromBufferAttribute(attPos, i);
+					attUv.setXY(i,(vec3.x - box.min.x) / size.x,(vec3.y - box.min.y) / size.y);
+					vec3.fromBufferAttribute(attPos2, i);
+					attUv2.setXY(i,(vec3.x - box2.min.x) / size.x,(vec3.y - box2.min.y) / size.y);
+					vec3.fromBufferAttribute(attPos3, i);
+					attUv3.setXY(i,(vec3.x - box3.min.x) / size.x,(vec3.y - box3.min.y) / size.y);
+				}
+				//--------------------------------------------------
+
+				// 그림자, 위치, 회전 설정 후 적용
+				mesh.castShadow = true; mesh.position.y = 25; mesh.rotation.z = - Math.PI / 8;
+				mesh2.castShadow = true; mesh2.position.y = 25; mesh2.rotation.z = - Math.PI / 8;
+				mesh3.castShadow = true; mesh3.position.x = -100; mesh3.position.z = 100; mesh3.position.y = 25; mesh3.position.y = 25; mesh3.rotation.z = - Math.PI / 8;
+				mesh4.castShadow = true; mesh4.position.x = -100; mesh4.position.z = 100;mesh4.position.y = 25; mesh4.position.y = 25; mesh4.rotation.z = - Math.PI / 8;
+				mesh5.castShadow = true; mesh5.position.x = 100; mesh5.position.z = -100; mesh5.position.y = 25; mesh5.position.y = 25; mesh5.rotation.z = - Math.PI / 8;
+				mesh6.castShadow = true; mesh6.position.x = 100; mesh6.position.z = -100; mesh6.position.y = 25; mesh6.position.y = 25; mesh6.rotation.z = - Math.PI / 8;
+
+				scene.add( mesh );
+				scene.add( mesh2 );	
+				
+				//-------------------------------------------------
+
+				// 브라우저 상에서 사용자가 Drag&Drop한 이미지를 ShapeGeometry위에 올리기
+				var dropArea = document.getElementById("drop-area");
+				dropArea.addEventListener("dragenter", onDragEnter);
+				dropArea.addEventListener("dragover", onDragOver);
+				dropArea.addEventListener("drop", onDrop);
+
+				// Drag Enter 이벤트
+				function onDragEnter(event) {
+					event.preventDefault();
+					event.stopPropagation();
+					dropArea.style.background = "rgba(0,0,0,0.1)";
+				}
+
+				// Drag 이벤트
+				function onDragOver(event) {
+					event.preventDefault();
+					event.stopPropagation();
+				}
+
+				// Drop 이벤트
+				function onDrop(event) {
+					event.preventDefault();
+					event.stopPropagation();
+					
+					var files = event.dataTransfer.files;
+					
+					// 만약 등록된 파일의 길이가 1이고, 첫 번째 파일이 image 파일이라면
+					if (files.length === 1 && files[0].type.startsWith("image/") && count == 0) {
+						var file = files[0];
+						var reader = new FileReader();
+						// file 읽기
+						reader.addEventListener("load", function() {
+							var texture = new THREE.Texture();
+							var image = new Image();
+							image.onload = function() {
+								texture.image = image;
+								texture.needsUpdate = true;
+							};
+							image.src = reader.result;
+							material.map = texture;
+							material.needsUpdate = true;
+							renderer.render( scene, camera );
+						});
+						reader.readAsDataURL(file);
+						count++;
+						console.log("count = " + count);
+					}else if (files.length === 1 && files[0].type.startsWith("image/") && count === 1) {
+						var file2 = files[0];
+						var reader = new FileReader();
+						reader.addEventListener("load", function() {					
+							var texture3 = new THREE.Texture();
+							var image2 = new Image();
+							image2.onload = function() {
+								texture3.image = image2;
+								texture3.needsUpdate = true;
+							};
+							image2.src = reader.result;
+							material3.map = texture3;
+							material3.needsUpdate = true;
+							scene.add(mesh3);
+							scene.add(mesh4);
+							renderer.render( scene, camera );
+						});
+						reader.readAsDataURL(file2);
+						count++;
+						console.log("count = " + count);
+					}else if (files.length === 1 && files[0].type.startsWith("image/") && count === 2) {
+						console.log(files.length);
+						var file3 = files[0];
+						var reader = new FileReader();
+						reader.addEventListener("load", function() {
+							var texture5 = new THREE.Texture();
+							var image3 = new Image();
+							image3.onload = function() {
+								texture5.image = image3;
+								texture5.needsUpdate = true;
+							};
+							image3.src = reader.result;
+							material5.map = texture5;
+							material5.needsUpdate = true;
+							scene.add(mesh5);
+							scene.add(mesh6);
+							renderer.render( scene, camera );
+						});
+						reader.readAsDataURL(file3);
+						count++;
+						console.log("count = " + count);
+					}
+				}
+
+				//-----------------------------------------------------------------
+
+				//
+
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( innerWidth, window.innerHeight );
+				// 너비 줄이기 renderer.domElement.style.marginLeft = (window.innerWidth - innerWidth) / 2 + 'px';
+
+				renderer.shadowMap.enabled = true;
+				document.body.appendChild( renderer.domElement );
+
+				//
+
+				const controls = new OrbitControls( camera, renderer.domElement );
+				controls.target.set( 0, 25, 0 );
+				
+				controls.update();
+				
+				//
+
+				window.addEventListener( 'resize', onWindowResize );
+
+				const gui = new GUI();
+				gui.add( params, 'animate' ).name('animate');
+				gui.add( params, 'pause' ).name('pause');
+
+				var Controls = { Controls: false };
+				var exportControls = { export: false };
+				var exportFolder = gui.addFolder('Export');
+				
+				exportFolder.add( params, 'exportASCII' ).name( 'Export PLY (ASCII)' );
+				exportFolder.add( params, 'exportBinaryBigEndian' ).name( 'Export PLY (Binary BE)' );
+				exportFolder.add( params, 'exportBinaryLittleEndian' ).name( 'Export PLY (Binary LE)' );
+
+				gui.open();
+
+
+				
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( innerWidth, window.innerHeight );
+				// 너비 줄이기 renderer.domElement.style.marginLeft = (window.innerWidth - innerWidth) / 2 + 'px';
+
+
+			}
+
+			function animate() {
+				requestAnimationFrame( animate );
+				if ( params.animate && !params.pause) {
+					mesh.rotation.y += 0.008; mesh.rotation.z = - Math.PI / 8;		
+					mesh2.rotation.y += 0.008; mesh2.rotation.z = - Math.PI / 8;
+					mesh3.rotation.y += 0.008; mesh3.rotation.z = - Math.PI / 8;		
+					mesh4.rotation.y += 0.008; mesh4.rotation.z = - Math.PI / 8;
+					mesh5.rotation.y += 0.008; mesh5.rotation.z = - Math.PI / 8;		
+					mesh6.rotation.y += 0.008; mesh6.rotation.z = - Math.PI / 8;
+				} else if(!params.animate && !params.pause) {
+					mesh.rotation.z = 0; mesh.rotation.y = Math.PI / 4;
+					mesh2.rotation.z = 0; mesh2.rotation.y = Math.PI / 4;
+					mesh3.rotation.z = 0; mesh3.rotation.y = Math.PI / 4;
+					mesh4.rotation.z = 0; mesh4.rotation.y = Math.PI / 4;
+					mesh5.rotation.z = 0; mesh5.rotation.y = Math.PI / 4;
+					mesh6.rotation.z = 0; mesh6.rotation.y = Math.PI / 4;
+				}	
+				renderer.render( scene, camera );
+			}
+
+			function pause() {
+				requestAnimationFrame( pause );
+				if ( params.pause ) {
+					mesh.rotation.y += 0;		
+					mesh2.rotation.y += 0;
+					mesh3.rotation.y += 0;
+					mesh4.rotation.y += 0;
+					mesh5.rotation.y += 0;
+					mesh6.rotation.y += 0;
+				} else {
+					animate();
+				}
+				renderer.render( scene, camera );
+			}
+
+
+			function exportASCII() {
+				exporter.parse( mesh, function ( result ) {
+					saveString( result, 'KONABIZ_CARD.ply' );
+				} );
+
+			}
+
+			function exportBinaryBigEndian() {
+				exporter.parse( mesh, function ( result ) {
+					saveArrayBuffer( result, 'KONABIZ_CARD.ply' );
+				}, { binary: true } );
+				const data = exporter.parse(scene);
+				downloadFile(data);
+				
+
+			}
+
+			function exportBinaryLittleEndian() {
+				exporter.parse( mesh, function ( result ) {
+					saveArrayBuffer( result, 'KONABIZ_CARD.ply' );
+				}, { binary: true, littleEndian: true } );
+
+			}
+
+			const link = document.createElement( 'a' );
+			link.style.display = 'none';
+			document.body.appendChild( link );
+
+			function save( blob, filename ) {
+
+				link.href = URL.createObjectURL( blob );
+				link.download = filename;
+				link.click();
+
+			}
+
+			function saveString( text, filename ) {
+				save( new Blob( [ text ], { type: 'text/plain' } ), filename );
+			}
+
+			function saveArrayBuffer( buffer, filename ) {
+
+				save( new Blob( [ buffer ], { type: 'application/octet-stream' } ), filename );
+
+			}
+
+		</script>
+
+	</body>
+</html>
