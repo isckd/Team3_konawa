@@ -106,3 +106,42 @@ function MySlider2__init() {
     });
   }
   MySlider2__init();
+
+//   typeit
+new TypeIt("#type-title", {
+    speed: 200,
+    waitUntilVisible: true,
+    loop: false,
+    afterComplete: function (instance) {
+        instance.destroy();
+      }
+  })
+  .type("새ㄹㅗ운") // 타이핑
+  .pause(100) //멈춤
+  .delete(4)
+  .type("특별한 ")
+  .pause(500)
+  .type("복지의")
+  .pause(1000)
+  .type(" 시작")
+  .move(1)
+  .type("<br/>")
+  .pause(1000)
+  .type("<span class='kona-color'>KONA BIZ</span>")
+  .pause(100)
+  .type("로 부터")
+  .go(); // 실행
+
+  new TypeIt("#tag-title", {
+    speed: 50,
+    waitUntilVisible: true,
+    loop: false,
+    cursor: false,
+  })
+  .pause(10000)
+  .type("<div style='font-size: 1rem'><span class='left-gray'>#도입비0원#연회비0원</span><span style='color: blue;'>#사원증#교통카드</span></div>")
+  .break()
+  .type("<span style='color: blue;'>#식대지원#한번에</span><span class='left-gray'>#복지#MZ오피스#MZ복지</span>")
+  .go();
+
+
