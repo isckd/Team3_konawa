@@ -17,4 +17,5 @@ https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoe
 - 꼬불꼬불 선을 만들어주는 사이트 https://www.shapedivider.app/ <br>
 - SVG 디자인 에셋을 만들어주는 사이트 https://haikei.app/ <br>
 - 이쁜 백그라운드 이미지를 생성해주는 사이트 https://coolbackgrounds.io/ <br>
-
+- CSS 애니메이션 적용 도와주는 사이트 https://animate.style/
+- 무료 이미지 편집기(웹사이트에서 구현X, 그냥 프로그램) https://www.gimp.org/
