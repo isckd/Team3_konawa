@@ -370,6 +370,7 @@
 
 			}
 
+			// 회전 동작
 			function animate() {
 				requestAnimationFrame( animate );
 				if ( params.animate && !params.pause) {
@@ -390,6 +391,7 @@
 				renderer.render( scene, camera );
 			}
 
+			// 회전 일시정지
 			function pause() {
 				requestAnimationFrame( pause );
 				if ( params.pause ) {
@@ -406,28 +408,25 @@
 			}
 
 
+			// ply 파일 export(1)
 			function exportASCII() {
 				exporter.parse( mesh, function ( result ) {
 					saveString( result, 'KONABIZ_CARD.ply' );
 				} );
-
 			}
-
+			// ply 파일 export(2)
 			function exportBinaryBigEndian() {
 				exporter.parse( mesh, function ( result ) {
 					saveArrayBuffer( result, 'KONABIZ_CARD.ply' );
 				}, { binary: true } );
 				const data = exporter.parse(scene);
 				downloadFile(data);
-				
-
 			}
-
+			// ply 파일 export(3)
 			function exportBinaryLittleEndian() {
 				exporter.parse( mesh, function ( result ) {
 					saveArrayBuffer( result, 'KONABIZ_CARD.ply' );
 				}, { binary: true, littleEndian: true } );
-
 			}
 
 			const link = document.createElement( 'a' );
@@ -435,11 +434,9 @@
 			document.body.appendChild( link );
 
 			function save( blob, filename ) {
-
 				link.href = URL.createObjectURL( blob );
 				link.download = filename;
 				link.click();
-
 			}
 
 			function saveString( text, filename ) {
@@ -447,9 +444,7 @@
 			}
 
 			function saveArrayBuffer( buffer, filename ) {
-
 				save( new Blob( [ buffer ], { type: 'application/octet-stream' } ), filename );
-
 			}
 
 		</script>

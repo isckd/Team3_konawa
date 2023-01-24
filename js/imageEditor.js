@@ -1,6 +1,7 @@
 const container = document.getElementById("image-editor");
 const config = {
-  source: "../assets/img/example-card/2.png"
+  source: "../assets/img/template/03.png",
+  soruce2: ""
 };
 const ImageEditor = new window.FilerobotImageEditor(container, config);
 
