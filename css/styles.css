@@ -88,7 +88,7 @@
   z-index:10;
 }
 .my-slider-2 .owl-item.active.center > .item {
-  margin-left:tion-heading-50px;
+  margin-left:-50px;
   margin-right:-50px;
   margin-top:-80px;
 }
