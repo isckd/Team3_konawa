@@ -8,16 +8,45 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link type="text/css" rel="stylesheet" href="./css/3D_Card.css">
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+		<style>
+			.colorInput {
+				margin-left: 20px;
+				border-radius: 20px;
+				background-color: transparent;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				width:200px;
+				height:50px;
+				cursor:pointer;
+			}
+			.colorInput::-webkit-color-swatch {
+				border-radius: 15px;
+				border:none;
+			}
+			.colorInput::-moz-color-swatch {
+				border-radius: 15px;
+				border:none;
+			}
+
+			.reset {
+				background-color: #A0A0A0;
+				border-radius: 20px;
+			}
+		</style>
 	</head>
 	<body>
 		<div style="float:left;">
-			<input type="color" id="groundColor-input" value="#A0A0A0">
-			<button id="groundColor-button">ground_Color</button>
-			<button id="groundColor-reset">reset</button>
+			<input type="color" class="colorInput" id="groundColor-input" value="#A0A0A0">
+			<label>GROUND</label>
+			<button class="reset" id="groundColor-reset">reset</button>
 			<br>
-			<input type="color" id="backColor-input" value="#A0A0A0">
-			<button id="backColor-button">background_Color</button>
-			<button id="backColor-reset">reset</button>
+			<input type="color" class="colorInput" id="backColor-input" value="#A0A0A0">
+			<label>BACK</label>
+			<button class="reset" id="backColor-reset">reset</button>
 		</div>
 
 		<div id="drop-area" style="height:100px; padding-left:350px;">
@@ -72,14 +101,14 @@
 				// backcolor 버튼
 				var backColorButton = document.getElementById("backColor-button");
 				var backColorInput = document.getElementById("backColor-input");
-				backColorButton.addEventListener("click", function() {
+				backColorInput.addEventListener("input", function() {
 					var color = backColorInput.value;
 					scene.background = new THREE.Color( color );
 					scene.fog = new THREE.Fog( color, 200, 1000 );
 				});
 			
-				var colorButton = document.getElementById("backColor-reset");
-				colorButton.addEventListener("click", function() {
+				var backcolorResetButton = document.getElementById("backColor-reset");
+				backcolorResetButton.addEventListener("click", function() {
 					scene.background = new THREE.Color( 0xa0a0a0 );
 					scene.fog = new THREE.Fog( 0xa0a0a0, 200, 1000 );
 					backColorInput.value = "#A0A0A0";
@@ -113,7 +142,7 @@
 
 				var groundColorButton = document.getElementById("groundColor-button");
 				var groundColorInput = document.getElementById("groundColor-input");
-				groundColorButton.addEventListener("click", function() {
+				groundColorInput.addEventListener("input", function() {
 					var color = groundColorInput.value;
 					ground.material.color.set(color);
 				});

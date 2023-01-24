@@ -15,5 +15,30 @@ ImageEditor.render({
     document.body.appendChild(tmpLink);
     tmpLink.click();
     document.body.removeChild(tmpLink);
+  },
+  annotationsCommon: {
+    fill: "black"
+  },
+  theme: {
+    palette: {
+      "bg-primary-active": "#e4faa9",
+      "bg-primary": "#000000",
+      "bg-secondary": "#2B2929",
+      "bg-primary-hover": "#e4faa9",
+      "bg-primary-0-5-opacity" : "#e4faa9",
+
+      "txt-primary": "#F7F5F2",
+      "txt-secondary": "#F7F5F2",
+      "active-secondary-hover": "#df8807",
+      "accent-primary-hover": "#df8807",
+      "accent-primary-active": "#000000",
+      "icons-primary": "#d851a2",
+      "icons-secondary": "#d851a2",
+      "link-hover": "yellow"
+
+    },
+    typography: {
+      fontFamily: "Atlas Grotesk,Roboto, Arial"
+    }
   }
 });
