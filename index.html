@@ -25,17 +25,42 @@
                 border:none;
                 height: 600px;
                 padding: 2rem;
+                margin-bottom: 2rem;
             }
             .card1 {
                 background: rgb(242,195,188);
                 background: linear-gradient(0deg, rgba(242,195,188,1) 0%, rgba(235,229,217,1) 100%);
             }
+            .card2 {
+                box-shadow: 10px 10px 30px 2px lightgrey;
+            }
+            .card3 {
+                background: #EDEDED;
+            }
+            .card4 {
+                background: rgb(238,240,245);
+                background: linear-gradient(270deg, rgba(238,240,245,1) 0%, rgba(243,244,249,1) 0%, rgba(197,201,222,1) 100%);
+            }
+            .card5 {
+                background: linear-gradient(103.7deg, rgb(192, 208, 250) -9.4%, rgb(225, 213, 233) 68.79%, rgb(233, 192, 234) 105.12%);
+            }
+            .card6 {
+                background: rgb(238,245,239);
+                background: radial-gradient(circle, rgba(238,245,239,1) 0%, rgba(226,236,222,1) 100%);
+            }
+            .card7 {
+                background: rgb(75,74,84);
+                background: linear-gradient(270deg, rgba(75,74,84,1) 0%, rgba(103,115,129,1) 100%);
+            }
            span {
                 font-weight: 700;
                 font-size: 2rem;
                 color: rgb(109, 102, 102);
-                line-height: 0.8;     
+                line-height: 1;     
            }
+           .font-white {
+                color:rgb(248, 240, 240) !important;
+            }
            .navbar {
                 backdrop-filter: blur(10px);
            }
@@ -105,18 +130,66 @@
 
         <!-- 고민? -->
         <!-- 복지제도 도입에 있어 가장 먼저 생각해야 되는 부분은? -->
-        <section class="page-section bg-light">
-            <div class="container px-4">
+        <!-- section class 에 bg-light 뺌 -->
+        <section class="page-section">
+            <div class="container">
                 <div class="row gx-5">
                     <div class="col">
                         <div class="card card1">
                             <span>복지제도 도입에 있어</span><br>
-                            <span>가장 먼저 생각해야 되는 부분은?</span>
+                            <span>가장 먼저 생각해야 되는 부분은?</span><br>
+                            <span>그라데이션</span>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card card2">
-                            <span>Pretendard 글씨체</span>
+                            <span>Pretendard 글씨체, 흰색 바탕에 그림자</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card card3">
+                            <span>회색 배경, 그림자x</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row gx-5">
+                    <div class="col">
+                        <div class="card card4">
+                            <span>그라데이션</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row gx-5">
+                    <div class="col">
+                        <div class="card" style="text-align:center;">
+                            <span>왼쪽에 설명, 오른쪽에 이미지</span><br>
+                            <span>어쩌구저쩌구</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card card5">
+                            <span>그리팅에서 참고한 색</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row gx-5">
+                    <div class="col">
+                        <div class="card card6">
+                            <span>그라데이션 넣은듯 안넣은듯</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card card7">
+                            <span class="font-white">랜딩페이지 컨셉이 검은색이라면?</span>
                         </div>
                     </div>
                 </div>
