@@ -1,4 +1,20 @@
-
+$(document).ready(function(){
+  $(window).scroll(function(){
+      var here = $("#sticky-section").offset().top;
+      var height = $(document).scrollTop();
+      var scroll = height - here;
+      console.log("scroll : " + scroll);
+        if(0 < scroll && scroll < 200){
+          $("#sticky-span").css("color", "purple");
+        } else if (200 <= scroll && scroll < 400) {
+          $("#sticky-span").css("color", "red");
+        } else if (400 < scroll) {
+          $("#sticky-span").css("color", "blue");
+        } else {
+          $("#sticky-span").css("color", "black");
+        }
+  })
+})
 // dd
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -23,13 +39,13 @@ window.addEventListener('DOMContentLoaded', event => {
     document.addEventListener('scroll', navbarShrink);
 
     // Activate Bootstrap scrollspy on the main nav element
-    const mainNav = document.body.querySelector('#mainNav');
-    if (mainNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            offset: 74,
-        });
-    };
+    // const mainNav = document.body.querySelector('#mainNav');
+    // if (mainNav) {
+    //     new bootstrap.ScrollSpy(document.body, {
+    //         target: '#mainNav',
+    //         offset: 74,
+    //     });
+    // };
 
     // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');

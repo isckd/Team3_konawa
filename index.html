@@ -52,19 +52,42 @@
                 background: rgb(75,74,84);
                 background: linear-gradient(270deg, rgba(75,74,84,1) 0%, rgba(103,115,129,1) 100%);
             }
-           span {
+            span {
                 font-weight: 700;
                 font-size: 2rem;
                 color: rgb(109, 102, 102);
                 line-height: 1;     
-           }
-           .font-white {
+            }
+            #sticky-div{
+                position: -webkit-sticky; /* Safari */
+                position:sticky;
+                top: 30rem;
+            }
+            .font-white {
                 color:rgb(248, 240, 240) !important;
             }
-           .navbar {
+            .navbar {
                 backdrop-filter: blur(10px);
-           }
+            }
         </style>
+
+        <script>
+            
+            $(document).ready(function() {
+                $("#sticky-section").on("scroll", function() {
+                
+                let scrollPercent = ($(this).scrollTop() / $(this).height()) * 100;
+                console.log("성공")
+                if (scrollPercent < 25) {
+                    $("#sticky-span").css("color", "purple");
+                } else if (scrollPercent < 50) {
+                    $("##sticky-span").css("color", "green");
+                } else {
+                    $("##sticky-span").css("color", "red");
+                }
+                });
+            });
+        </script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -104,10 +127,9 @@
                         <video class ="my-video" autoplay muted loop>
                             <source src="video/testvideo.mp4" type="video/mp4" />
                             Your browser is not supported!
-                          </video>
+                        </video>
                     </div>
                 </div>
-               
                 <!-- <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a> -->
             </div>
         </header>
@@ -196,6 +218,13 @@
             </div>
         </section>
         
+        <section class="page-section" id="sticky-section" onscroll="changeColor()" style="height:3000px; padding-top: 500px; padding-bottom: 500px;">
+            <div style="text-align:center;" class="sticky" id="sticky-div">
+                <span id="sticky-span">스크롤 내리는거 테스트</span>
+            </div>
+        </section>
+
+
         <!-- Services-->
         <section class="page-section" id="services">
             <div class="container">
