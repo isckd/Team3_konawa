@@ -115,7 +115,11 @@
 .owl-item.active {
   opacity: 1;
 }
-.owl-item img {
+/* .owl-item img {
+  box-shadow: 20px 20px 20px 0 rgba(74,74,74,0.50);
+} */
+
+.my-slider-1 img {
   box-shadow: 20px 20px 20px 0 rgba(74,74,74,0.50);
 }
 
