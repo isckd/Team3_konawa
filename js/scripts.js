@@ -2,16 +2,30 @@ $(document).ready(function(){
   $(window).scroll(function(){
       var here = $("#sticky-section").offset().top;
       var height = $(document).scrollTop();
+      var originHeight = $("#sticky-section").height();
       var scroll = height - here;
-      console.log("scroll : " + scroll);
-        if(0 < scroll && scroll < 200){
-          $("#sticky-span").css("color", "purple");
-        } else if (200 <= scroll && scroll < 400) {
-          $("#sticky-span").css("color", "red");
-        } else if (400 < scroll) {
-          $("#sticky-span").css("color", "blue");
+      var sc = scroll * 100 / originHeight;
+      console.log("sticky section scroll% = " + scroll * 100 / originHeight + "%");
+        if(sc < 10){
+          $("#sticky-span").css("opacity", "0.1");
+        } else if (sc < 20) {
+          $("#sticky-span").css("opacity", "0.2");
+        } else if (sc < 30) {
+          $("#sticky-span").css("opacity", "0.3");
+        } else if (sc < 40) {
+          $("#sticky-span").css("opacity", "0.4");
+        } else if (sc < 50) {
+          $("#sticky-span").css("opacity", "0.5");
+        } else if (sc < 60) {
+          $("#sticky-span").css("opacity", "0.6");
+        } else if (sc < 70) {
+          $("#sticky-span").css("opacity", "0.7");
+        } else if (sc < 80) {
+          $("#sticky-span").css("opacity", "0.8");
+        } else if (sc < 90) {
+          $("#sticky-span").css("opacity", "0.9");
         } else {
-          $("#sticky-span").css("color", "black");
+          $("#sticky-span").css("opacity", "0.9");
         }
   })
 })
