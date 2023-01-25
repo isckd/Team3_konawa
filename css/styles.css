@@ -11422,17 +11422,32 @@ p {
   margin-bottom: 4rem;
 }
 .page-section summary {
-  font-size: 2rem;
+  /* font-size: 2rem; */
   font-weight: 400;
   margin-bottom: 1rem;
-  font-family: 'yg-jalnan', "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: pretendard,'yg-jalnan', "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  cursor: pointer;
+}
+.white-size {
+  color: aliceblue;
+  font-size: 2rem;
+}
+.div-padding {
+  padding: 2rem
+}
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
 }
 .kona-color {
   color: #FF3C42;  
 }
 details {
   color: #fff;  
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 @media (min-width: 768px) {
   section {
@@ -11849,6 +11864,9 @@ section#experience {
   background-color: #000000;
   background-repeat: no-repeat;
   background-position: center;
+}
+.ex-title {
+  font-size: 3rem;
 }
 section#contact {
   background-color: #000000;
