@@ -131,7 +131,7 @@ function MySlider2__init() {
       smartSpeed: 2000,
       loop:true,
       dots:false,
-      
+      rtl:true
       
     });
   }

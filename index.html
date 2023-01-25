@@ -26,6 +26,7 @@
                 height: 600px;
                 padding: 2rem;
                 margin-bottom: 2rem;
+                box-shadow: 10px 10px 30px 2px lightgrey;
             }
             .card1 {
                 background: rgb(242,195,188);
@@ -77,7 +78,7 @@
                 font-weight: 700;
                 font-size: 2rem;
                 color: rgb(109, 102, 102);
-                line-height: 1;     
+                line-height: 1.5;     
             }
             #sticky-div{
                 position: -webkit-sticky; /* Safari */
@@ -86,7 +87,7 @@
             }
             #sticky-span{
                 font-size: 72px;
-                background: -webkit-linear-gradient(rgb(129, 126, 126), rgb(99, 95, 183));
+                background: -webkit-linear-gradient(rgb(255, 0, 0), rgb(231, 63, 63));
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
@@ -95,6 +96,40 @@
             }
             .navbar {
                 backdrop-filter: blur(10px);
+            }
+            .buttons {
+                border-radius: 20px; 
+                border:none;
+                height: 400px;
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: rgb(109, 102, 102);
+            }
+            #button0 { 
+                background-color: rgb(232, 178, 178);
+                margin-bottom: 1rem;
+            }
+            #button1 { 
+                background-color: rgb(199, 121, 121);
+            }
+            #button2 {
+                margin-top: 20px;
+                background-color: rgb(235, 235, 235);
+            }
+            #button3 {
+                background-color: rgb(253, 253, 253);
+            }
+            #button0:hover {
+                background-color: rgb(159, 110, 110);
+            }
+            #button1:hover {
+                background-color: rgb(180, 144, 144);
+            }
+            #button2:hover {
+                background-color: rgb(212, 212, 212);
+            }
+            #button3:hover {
+                background-color: rgb(241, 241, 241);
             }
         </style>
 
@@ -159,9 +194,17 @@
             </div>
         </header>
 
+        <section class="page-section">
+            <div class="container" style="text-align:center;">
+                <h1 class="display-4" style="font-weight:700;">특별한 복지의 시작</h1>
+                <span class="display-4" style="font-weight:700; color:red;">KONA BIZ</span>
+                <span class="display-4" style="font-weight:700; color:black;"> 로부터</span>
+            </div>
+        </section>
+
         <!-- hr관리자는 이런 복지를 원해요 -->
         <div class="make-line-center">
-            <section  class="page-section" id="hr-want">
+            <section  class="page-section bg-light" id="hr-want">
                 <div class="container" >
                     <h2 class="color-white">hr관리자는</h2>
                     <div class="color-white">
@@ -175,27 +218,31 @@
             </section>
         </div>        
 
-        <!-- 고민? -->
-        <!-- 복지제도 도입에 있어 가장 먼저 생각해야 되는 부분은? -->
         <!-- section class 에 bg-light 뺌 -->
         <section class="page-section">
             <div class="container">
                 <div class="row gx-5">
                     <div class="col">
                         <div class="card card1">
-                            <span>복지제도 도입에 있어</span><br>
-                            <span>가장 먼저 생각해야 되는 부분은?</span><br>
-                            <span>그라데이션</span>
+                            <span>나만의 디자인</span><br>
+                            <span style="font-size: 1rem;">코나BIZ에서 제공하는 기본 템플릿 뿐만 아니라, 직접 디자인을 만들어보며 감각적인 카드를 만들어보세요!</span><br>
+                            <button type="button" class="btn btn-danger buttons" id="button0" onclick="window.open('./imageEditor.html')">나만의 카드 만들어보기</button>
+                            <button type="button" class="btn btn-danger buttons" id="button1" onclick="window.open('./3D_Card.html')">3D VIEW</button>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card card2">
-                            <span>Pretendard 글씨체, 흰색 바탕에 그림자</span>
+                            <span>부담없는 운영비용</span><br>
+                            <span style="font-size: 1rem;">도입비 : 0원, 운영비 0원!</span><br>
+                            <button type="button" class="btn btn-danger buttons" id="button2" onclick="window.open('https://konai.oopy.io/d8d928ad-38f1-4196-80ca-6f01566cf848')">도입 사례 살펴보기</button>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card card3">
-                            <span>회색 배경, 그림자x</span>
+                            <span>제한없는 사용처</span><br>
+                            <span style="font-size: 1rem;">복지몰의 한정된 사용처에 지치셨나요? 임직원분들에게 마음껏 사용할 수 있는 복지카드를 제공해보세요! </span><br>
+                            <span style="font-size: 1rem;">물론 관리자가 제한업종도 간편하게 설정 가능합니다!</span><br>
+                            <button type="button" class="btn btn-danger buttons" id="button3" onclick="window.open('https://konai.oopy.io/93ecfd08-f54d-4356-9ce8-3af2985cb866')">도입 사례 살펴보기</button>
                         </div>
                     </div>
                 </div>
@@ -210,126 +257,13 @@
                     </div>
                 </div>
             </div>
-
-            <div class="container">
-                <div class="row gx-5">
-                    <div class="col">
-                        <div class="card" style="text-align:center;">
-                            <span>왼쪽에 설명, 오른쪽에 이미지</span><br>
-                            <span>어쩌구저쩌구</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card card5">
-                            <span>그리팅에서 참고한 색</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row gx-5">
-                    <div class="col">
-                        <div class="card card6">
-                            <span>그라데이션 넣은듯 안넣은듯</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card card7">
-                            <span class="font-white">랜딩페이지 컨셉이 검은색이라면?</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row gx-5">
-                    <div class="col">
-                        <div class="card card8">
-                            <span>그라데이션</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card card9">
-                            <span class="font-white">그라데이션</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row gx-5">
-                    <div class="col">
-                        <div class="card card10">
-                            <span>그라데이션</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card card11">
-                            <span class="font-white">그라데이션</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row gx-5">
-                    <div class="col">
-                        <div class="card card12">
-                            <span>그라데이션</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card card13">
-                            <span class="font-white">그라데이션</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
         
         <section class="page-section" id="sticky-section" onscroll="changeColor()" style="height:3000px; padding-top: 500px; padding-bottom: 500px;">
             <div style="text-align:center;" class="sticky" id="sticky-div">
-                <span id="sticky-span">스크롤 내리는거 테스트</span>
+                <span id="sticky-span">KONA BIZ와 함께하는</span>
             </div>
         </section>
-
-
-        <!-- Services-->
-        <section class="page-section" id="services">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">코나Biz 카드만의 기능</h2>
-                </div>  
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">부담없는 운영비용</h4>
-                        <p class="text-muted">도입비 0원, 운영 유지비 0원!</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">제한없는 사용처</h4>
-                        <p class="text-muted">복지몰의 한정된 사용처에 지치셨나요? 임직원분들에게 마음껏 사용할 수 있는 복지카드를 제공해보세요! 물론 관리자가 제한 업종도 간편하게 설정 가능합니다!</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">나만의 디자인</h4>
-                        <p class="text-muted">코나Biz에서 제공하는 기본 탬플릿 뿐만 아니라, 직접 디자인을 만들어보며 감각적인 카드를 만들어보세요!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
 
         <section class="page-section">
             <!-- 아울 캐러셀 불러오기 -->
@@ -421,23 +355,11 @@
                         <img src="assets/img/company/02.png" alt=""/>
                     </div>
                     <div class="item">
-                        <img src="assets/img/company/03.png" alt=""/>
-                    </div>
-                    <div class="item">
                         <img src="assets/img/company/04.png" alt=""/>
                     </div>
                     <div class="item">
                         <img src="assets/img/company/05.png" alt=""/>
-                    </div>
-                    <div class="item">
-                        <img src="assets/img/company/06.png" alt=""/>
-                    </div>
-                    <div class="item">
-                        <img src="assets/img/company/07.png" alt=""/>
-                    </div>
-                    <div class="item">
-                        <img src="assets/img/company/08.png" alt=""/>
-                    </div>
+                    </div> 
                     <div class="item">
                         <img src="assets/img/company/09.png" alt=""/>
                     </div>
@@ -445,49 +367,22 @@
                         <img src="assets/img/company/10.png" alt=""/>
                     </div>
                     <div class="item">
-                        <img src="assets/img/company/11.png" alt=""/>
-                    </div>
-                    <div class="item">
                         <img src="assets/img/company/12.png" alt=""/>
-                    </div>
-                    <div class="item">
-                        <img src="assets/img/company/13.png" alt=""/>
                     </div>
                     <div class="item">
                         <img src="assets/img/company/14.png" alt=""/>
                     </div>
                     <div class="item">
-                        <img src="assets/img/company/15.png" alt=""/>
-                    </div>
-                    <div class="item">
                         <img src="assets/img/company/16.png" alt=""/>
                     </div>
                     <div class="item">
-                        <img src="assets/img/company/17.png" alt=""/>
-                    </div>
-                    <div class="item">
-                        <img src="assets/img/company/18.png" alt=""/>
-                    </div>
-                    <div class="item">
                         <img src="assets/img/company/19.png" alt=""/>
-                    </div>
-                    <div class="item">
-                        <img src="assets/img/company/20.png" alt=""/>
-                    </div>
-                    <div class="item">
-                        <img src="assets/img/company/21.png" alt=""/>
                     </div>
                     <div class="item">
                         <img src="assets/img/company/22.png" alt=""/>
                     </div>
                     <div class="item">
                         <img src="assets/img/company/23.png" alt=""/>
-                    </div>
-                    <div class="item">
-                        <img src="assets/img/company/24.png" alt=""/>
-                    </div>
-                    <div class="item">
-                        <img src="assets/img/company/25.png" alt=""/>
                     </div>
                     <div class="item">
                         <img src="assets/img/company/26.png" alt=""/>
@@ -502,16 +397,10 @@
                         <img src="assets/img/company/29.png" alt=""/>
                     </div>
                     <div class="item">
-                        <img src="assets/img/company/30.png" alt=""/>
-                    </div>
-                    <div class="item">
                         <img src="assets/img/company/31.png" alt=""/>
                     </div>
                     <div class="item">
                         <img src="assets/img/company/32.png" alt=""/>
-                    </div>
-                    <div class="item">
-                        <img src="assets/img/company/33.png" alt=""/>
                     </div>
                     <div class="item">
                         <img src="assets/img/company/34.png" alt=""/>
@@ -521,94 +410,52 @@
                     </div>
                 </div>
             </div>
-        </section>
 
-
-
-
-       
-        <!-- About-->
-        <section class="page-section" id="about">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-                <ul class="timeline">
-                    <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>2009-2011</h4>
-                                <h4 class="subheading">Our Humble Beginnings</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>March 2011</h4>
-                                <h4 class="subheading">An Agency is Born</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>December 2015</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>July 2020</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <h4>
-                                Be Part
-                                <br />
-                                Of Our
-                                <br />
-                                Story!
-                            </h4>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Clients-->
-        <div class="py-5">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/microsoft.svg" alt="..." aria-label="Microsoft Logo" /></a>
+            <div class="my-slider-2 w-75">
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+                        <img src="assets/img/company/03.png" alt=""/>
                     </div>
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/google.svg" alt="..." aria-label="Google Logo" /></a>
+                    <div class="item">
+                        <img src="assets/img/company/06.png" alt=""/>
                     </div>
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/facebook.svg" alt="..." aria-label="Facebook Logo" /></a>
+                    <div class="item">
+                        <img src="assets/img/company/07.png" alt=""/>
                     </div>
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/ibm.svg" alt="..." aria-label="IBM Logo" /></a>
+                    <div class="item">
+                        <img src="assets/img/company/08.png" alt=""/>
+                    </div>  
+                    <div class="item">
+                        <img src="assets/img/company/11.png" alt=""/>
+                    </div>
+                    <div class="item">
+                        <img src="assets/img/company/13.png" alt=""/>
+                    </div>  
+                    <div class="item">
+                        <img src="assets/img/company/15.png" alt=""/>
+                    </div>
+                    <div class="item">
+                        <img src="assets/img/company/17.png" alt=""/>
+                    </div>
+                    <div class="item">
+                        <img src="assets/img/company/18.png" alt=""/>
+                    </div>
+                    <div class="item">
+                        <img src="assets/img/company/21.png" style="position: relative; top: -12px;" alt=""/>
+                    </div>
+                    <div class="item">
+                        <img src="assets/img/company/24.png" alt=""/>
+                    </div>
+                    <div class="item">
+                        <img src="assets/img/company/25.png" alt=""/>
+                    </div>
+                    <div class="item">
+                        <img src="assets/img/company/30.png" alt=""/>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
         <!-- 코나복지 카드를 경험해 보세요 -->
         <section  class="page-section" id="experience">
             <div class="container">
@@ -733,20 +580,27 @@
                     <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
                 </form>
             </div>
+            <div style="float:right; margin-right:110px;">
+                <span style="font-size: 1.5rem; font-weight: 700;">02-2168-7529 &nbsp;|&nbsp; konabiz@konai.com</span>
+            </div>
         </section>
+
+
+
+
         <!-- Footer-->
-        <footer class="footer py-4">
+        <footer class="footer py-4" style="color: rgb(109, 102, 102);">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2022</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    <div style="text-align:center;">
+                        <div class="" style="font-weight:700;">
+                            <a class="link-dark text-decoration-none me-3" href="#!">서비스 이용 약관 &nbsp;&nbsp;&nbsp; |</a>    
+                            <a class="link-dark text-decoration-none" href="#!">개인정보 보호 정책</a>
+                        </div>
+                        <div>
+                            코나아이(주) | 사업자등록번호 : 109-81-53365 | 고객센터 : 1899-4118 | KONA BIZ CARD <br>
+                            대표이사 : 조정일 | 주소 : 서울 영등포구 은행로 3 익스콘벤처타워 (8층)
+                        </div>
                     </div>
                 </div>
             </div>
