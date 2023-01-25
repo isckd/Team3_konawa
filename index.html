@@ -19,10 +19,11 @@
         <link href="css/styles.css" rel="stylesheet" />
         <!-- 제이쿼리 불러오기 -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <style>
             .card {
                 border-radius:20px; 
-                border:none;
+                border:none !important;
                 height: 600px;
                 padding: 2rem;
                 margin-bottom: 2rem;
@@ -132,24 +133,6 @@
                 background-color: rgb(241, 241, 241);
             }
         </style>
-
-        <script>
-            
-            $(document).ready(function() {
-                $("#sticky-section").on("scroll", function() {
-                
-                let scrollPercent = ($(this).scrollTop() / $(this).height()) * 100;
-                console.log("성공")
-                if (scrollPercent < 25) {
-                    $("#sticky-span").css("color", "purple");
-                } else if (scrollPercent < 50) {
-                    $("##sticky-span").css("color", "green");
-                } else {
-                    $("##sticky-span").css("color", "red");
-                }
-                });
-            });
-        </script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -201,28 +184,46 @@
             </div>
         </section>
 
-         <!-- hr관리자는 이런 복지를 원해요 -->        
-         <section class="page-section">
-            <div class="center">
-                <section class="skewdBox">
-                    <div class="container" style="margin-top: 30%; margin-left: 30%;">
-                        <h1 class="color-white" >HR 관리자는</h1>
-                        <div>
-                            <h2>
-                                <span class="color-white">이런 </span>
-                                <span class="kona-color" style="font-size: 3rem;">복지</span>
-                                <span class="color-white">를 원해요</span>
-                            </h2>
+
+        <div class="skw-pages">
+            <div class="skw-page skw-page-1 active">
+                <div class="skw-page__half skw-page__half--left">
+                    <div class="skw-page__skewed">
+                        <div class="skw-page__content"></div>
+                    </div>
+                </div>
+                <div class="skw-page__half skw-page__half--right">
+                    <div class="skw-page__skewed">
+                        <div class="skw-page__content">
+                            <h2 class="skw-page__heading">복지제도 도입에 있어 고려해야될 부분은?</h2>
                         </div>
                     </div>
-                </section>
-                <section class="section2">
-                    <div class="container">
-                        <img class="img-fluid" src="./assets/img/main-page/want.png">
-                    </div>
-                </section>
+                </div>
             </div>
-        </section>
+            <div class="skw-page skw-page-2">
+                <div class="skw-page__half skw-page__half--left">
+                    <div class="skw-page__skewed">
+                        <div class="skw-page__content">
+                            <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite animate__fast" style="font-size:3.5rem; position:relative; left:300px; top: 50px;">쉬운 관리</h2>
+                            <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite animate__slow" style="font-size:2rem; position:relative; right:200px;">사원증</h2>
+                            <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite" style="font-size:3rem; position:relative;">하나로 통합</h2>
+                            <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite" style="font-size:2.5rem; position:relative; left: 400px; bottom:30px;">법인카드</h2>
+                            <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite" style="font-size:2.7rem; position:relative; right: 150px;">출입증</h2>
+                            <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite animate__slower" style="font-size:1.5rem; position:relative; left:250px;">교통카드</h2>
+                            <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite animate__faster" style="font-size:4.5rem; position:relative; right:150px;">도입비 0원</h2>
+                            <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite animate__faster" style="font-size:4.5rem; position:relative; left: 200px;">직원만족</h2>
+                            <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite" style="font-size:3rem; position:relative; right: 130px;">커스텀 디자인</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="skw-page__half skw-page__half--right">
+                    <div class="skw-page__skewed">
+                        <div class="skw-page__content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
         <!-- section class 에 bg-light 뺌 -->
         <section class="page-section">
@@ -264,7 +265,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section class="page-section" id="sticky-section" onscroll="changeColor()" style="height:3000px; padding-top: 500px; padding-bottom: 500px;">
             <div style="text-align:center;" class="sticky" id="sticky-div">
                 <span id="sticky-span">KONA BIZ와 함께하는</span>
@@ -520,7 +521,7 @@
         <section class="page-section" id="contact">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">문의 하기</h2>
+                    <h2 class="section-heading text-uppercase">도입문의</h2>
                     <h3 class="section-subheading" style="color: aliceblue;">궁금한 사항을 물어보세요!</h3>
                 </div>
                 <!-- * * * * * * * * * * * * * * *-->
@@ -583,7 +584,7 @@
                     <!-- an error submitting the form-->
                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                     <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
+                    <div class="text-center"><button class="btn btn-secondary btn-xl text-uppercase disabled" id="submitButton" type="submit">문의 보내기</button></div>
                 </form>
             </div>
             <div style="float:right; margin-right:110px;">

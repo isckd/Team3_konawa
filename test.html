@@ -5,11 +5,96 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <script>
+        $(document).ready(function() {
+
+            var curPage = 1;
+            var numOfPages = $(".skw-page").length;
+            var animTime = 1000;
+            var scrolling = false;
+            var pgPrefix = ".skw-page-";
+        
+            function pagination() {
+            scrolling = true;
+        
+            $(pgPrefix + curPage).removeClass("inactive").addClass("active");
+            $(pgPrefix + (curPage - 1)).addClass("inactive");
+            $(pgPrefix + (curPage + 1)).removeClass("active");          
+            setTimeout(function() {
+                scrolling = false;
+            }, animTime);
+            };
+        
+            function navigateUp() {
+            if (curPage === 1) return;
+            curPage--;
+            pagination();
+            };
+        
+            function navigateDown() {
+            if (curPage === numOfPages) return;
+            curPage++;
+            pagination();
+            };
+    
+            $(document).on("mousewheel DOMMouseScroll", function(e) {
+            if (scrolling) return;
+            if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
+                navigateUp();
+            } else { 
+                navigateDown();
+            }
+            });
+    
+            $(document).on("keydown", function(e) {
+            if (scrolling) return;
+            if (e.which === 38) {
+                navigateUp();
+            } else if (e.which === 40) {
+                navigateDown();
+            }
+            });
+        
+        });
+    </script>
 </head>
 <body>
-    <label for="exampleColorInput" class="form-label">Color picker</label>
-    <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c" title="Choose your color">
+    <div style="height:1000px;" style="background-color: lightgray"></div>
+        <div class="skw-pages">
+            <div class="skw-page skw-page-1 active">
+                <div class="skw-page__half skw-page__half--left">
+                    <div class="skw-page__skewed">
+                        <div class="skw-page__content"></div>
+                    </div>
+                </div>
+                <div class="skw-page__half skw-page__half--right">
+                    <div class="skw-page__skewed">
+                        <div class="skw-page__content">
+                            <h2 class="skw-page__heading">복지제도 도입에 있어 고려해야될 부분은?</h2>
+                            <p class="skw-page__description">Just scroll down</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skw-page skw-page-2">
+                <div class="skw-page__half skw-page__half--left">
+                    <div class="skw-page__skewed">
+                        <div class="skw-page__content">
+                            <h2 class="skw-page__heading">Page 2</h2>
+                            <p class="skw-page__description">Nothing to do here, continue scrolling.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="skw-page__half skw-page__half--right">
+                    <div class="skw-page__skewed">
+                        <div class="skw-page__content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

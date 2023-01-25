@@ -5,7 +5,6 @@ $(document).ready(function(){
       var originHeight = $("#sticky-section").height();
       var scroll = height - here;
       var sc = scroll * 100 / originHeight;
-      console.log("sticky section scroll% = " + scroll * 100 / originHeight + "%");
         if(sc < 10){
           $("#sticky-span").css("opacity", "0.1");
         } else if (sc < 20) {
@@ -51,15 +50,6 @@ window.addEventListener('DOMContentLoaded', event => {
 
     // Shrink the navbar when page is scrolled
     document.addEventListener('scroll', navbarShrink);
-
-    // Activate Bootstrap scrollspy on the main nav element
-    // const mainNav = document.body.querySelector('#mainNav');
-    // if (mainNav) {
-    //     new bootstrap.ScrollSpy(document.body, {
-    //         target: '#mainNav',
-    //         offset: 74,
-    //     });
-    // };
 
     // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
@@ -136,6 +126,75 @@ function MySlider2__init() {
     });
   }
   MySlider2__init();
+
+// 대각선 슬라이드
+  $(document).ready(function() {
+
+    var curPage = 1;
+    var numOfPages = $(".skw-page").length;
+    var animTime = 1000;
+    var scrolling = false;
+    var pgPrefix = ".skw-page-";
+
+    function pagination() {
+    scrolling = true;
+
+    $(pgPrefix + curPage).removeClass("inactive").addClass("active");
+    $(pgPrefix + (curPage - 1)).addClass("inactive");
+    $(pgPrefix + (curPage + 1)).removeClass("active");          
+    setTimeout(function() {
+        scrolling = false;
+    }, animTime);
+    };
+
+    function navigateUp() {
+      if (curPage === 1) return;
+      curPage--;
+      pagination();
+    };
+
+    function navigateDown() {
+      if (curPage === numOfPages) return;
+      curPage++;
+      pagination();
+    };
+
+
+    $(document).on("mousewheel DOMMouseScroll", function(e) {
+      var here2 = $(".skw-pages").offset().top;
+      var height2 = $(document).scrollTop();
+      var originHeight2 = $(".skw-pages").height();
+      var scroll2 = height2 - here2;
+      const sc_2 = scroll2 * 100 / originHeight2;
+      console.log(sc_2);
+      if (scrolling) return;
+      if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
+        if(sc_2 > -10 && sc_2 < 100) {
+          navigateUp();
+        }
+      } else { 
+        if(sc_2 > -10 && sc_2 < 100) {
+          navigateDown();
+        }  
+      }
+    
+    });
+
+
+    $(document).on("keydown", function(e) {
+    if (scrolling) return;
+    if (e.which === 38) {
+        navigateUp();
+    } else if (e.which === 40) {
+        navigateDown();
+    }
+    });
+
+
+});
+
+
+
 
 //   typeit
 new TypeIt("#type-title", {
