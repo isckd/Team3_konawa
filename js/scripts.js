@@ -112,15 +112,15 @@ function MySlider2__init() {
     $('.my-slider-2 > .owl-carousel').owlCarousel({
       responsive:{
         1000:{
-          items:5,
-          margin:50
+          items:10,
+          margin:20
         },
         600:{
-            items:4,
-            margin:20
+            items:8,
+            margin:10
         },
         0:{
-            items:3,
+            items:5,
             margin:5
         }
       },
@@ -131,7 +131,7 @@ function MySlider2__init() {
       smartSpeed: 2000,
       loop:true,
       dots:false,
-      rtl:true
+      
       
     });
   }

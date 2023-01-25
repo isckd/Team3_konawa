@@ -11,10 +11,13 @@
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		
 		<style>
 			.colorInput {
 				margin-left: 20px;
 				border-radius: 20px;
+				border: solid white 1px;
 				background-color: transparent;
 				-webkit-appearance: none;
 				-moz-appearance: none;
@@ -31,27 +34,35 @@
 				border-radius: 15px;
 				border:none;
 			}
+			.colorInput:hover {
+				border: solid black 2px;
+			}
 
 			.reset {
-				background-color: #A0A0A0;
+				background-color: inherit;
 				border-radius: 20px;
+				border: solid black 1px;
+				color: white;
+				margin-left: 20px;
+				position: relative;
+				top: -10px;
 			}
 		</style>
 	</head>
 	<body>
 		<div style="float:left;">
+			<label class="colorLabel">GROUND</label>
 			<input type="color" class="colorInput" id="groundColor-input" value="#A0A0A0">
-			<label>GROUND</label>
 			<button class="reset" id="groundColor-reset">reset</button>
 			<br>
+			<label class="colorLabel" style="margin-right:26px;">BACK</label>
 			<input type="color" class="colorInput" id="backColor-input" value="#A0A0A0">
-			<label>BACK</label>
 			<button class="reset" id="backColor-reset">reset</button>
 		</div>
 
-		<div id="drop-area" style="height:100px; padding-left:350px;">
-			<h1>여기에 파일 드랍(한 번에 파일 하나씩, 최대 3개 가능. 카드 뒷면은 나중에 파일 받아서 넣을 예정)</h1>
-			<h1>이미지 파일을 업로드하고 F11을 눌러보시죠</h1>
+		<div id="drop-area">
+			<h1>여기에 파일 드랍(한 번에 파일 하나씩, 최대 3개 가능)</h1>
+			<h1>이미지 파일을 업로드하고 F11을 눌러보세요!</h1>
 		</div>
 
 		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
@@ -101,10 +112,12 @@
 				// backcolor 버튼
 				var backColorButton = document.getElementById("backColor-button");
 				var backColorInput = document.getElementById("backColor-input");
+				
 				backColorInput.addEventListener("input", function() {
 					var color = backColorInput.value;
 					scene.background = new THREE.Color( color );
 					scene.fog = new THREE.Fog( color, 200, 1000 );
+					$("body").css("background-color", color);
 				});
 			
 				var backcolorResetButton = document.getElementById("backColor-reset");
@@ -112,6 +125,7 @@
 					scene.background = new THREE.Color( 0xa0a0a0 );
 					scene.fog = new THREE.Fog( 0xa0a0a0, 200, 1000 );
 					backColorInput.value = "#A0A0A0";
+					$("body").css("background-color", "#A0A0A0");
 				});
 				//---------------------------------------------
 				
