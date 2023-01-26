@@ -193,21 +193,21 @@
 				// geometry에 모양 적용하고, 이미지 삽입해 mesh에 저장
 				var geometry = new THREE.ShapeGeometry(shape);
 				const texture = new THREE.TextureLoader().load('./assets/img/example-card/1.png');
-				const texture2 = new THREE.TextureLoader().load('./assets/img/example-card/2.png');
+				const texture2 = new THREE.TextureLoader().load('./assets/img/example-card/back.png');
 				var material =  new THREE.MeshBasicMaterial( {map: texture, side: THREE.FrontSide});
 				var material2 =  new THREE.MeshBasicMaterial( {map: texture2, side: THREE.BackSide});
 				mesh = new THREE.Mesh( geometry, material );
 				mesh2 = new THREE.Mesh( geometry, material2 );
 
 				const texture3 = new THREE.TextureLoader().load('./assets/img/example-card/1.png');
-				const texture4 = new THREE.TextureLoader().load('./assets/img/example-card/2.png');
+				const texture4 = new THREE.TextureLoader().load('./assets/img/example-card/back.png');
 				var material3 =  new THREE.MeshBasicMaterial( {map: texture3, side: THREE.FrontSide});
 				var material4 =  new THREE.MeshBasicMaterial( {map: texture4, side: THREE.BackSide});
 				mesh3 = new THREE.Mesh( geometry, material3 );
 				mesh4 = new THREE.Mesh( geometry, material4 );
 
 				const texture5 = new THREE.TextureLoader().load('./assets/img/example-card/1.png');
-				const texture6 = new THREE.TextureLoader().load('./assets/img/example-card/2.png');
+				const texture6 = new THREE.TextureLoader().load('./assets/img/example-card/back.png');
 				var material5 =  new THREE.MeshBasicMaterial( {map: texture5, side: THREE.FrontSide});
 				var material6 =  new THREE.MeshBasicMaterial( {map: texture6, side: THREE.BackSide});
 				mesh5 = new THREE.Mesh( geometry, material5 );

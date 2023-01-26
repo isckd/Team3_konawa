@@ -107,18 +107,18 @@
                 color: rgb(109, 102, 102);
             }
             #button0 { 
-                background-color: rgb(232, 178, 178);
+                background: rgb(232, 178, 178) url(./assets/img/main-page/button_background1.png) no-repeat 100% 0%/50%;
                 margin-bottom: 1rem;
             }
             #button1 { 
-                background-color: rgb(199, 121, 121);
+                background: rgb(199, 121, 121) url(./assets/img/main-page/button_background2.png) no-repeat 0% 50%/50%;
             }
             #button2 {
                 margin-top: 20px;
-                background-color: rgb(235, 235, 235);
+                background: rgb(235, 235, 235) url(./assets/img/main-page/button_background3.png) no-repeat 50% 50%/100%;
             }
             #button3 {
-                background-color: rgb(253, 253, 253);
+                background: rgb(253, 253, 253) url(./assets/img/main-page/button_background4.png) no-repeat 50% 50%/100%;
             }
             #button0:hover {
                 background-color: rgb(159, 110, 110);
@@ -145,9 +145,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>                        
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>                    
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">서비스 소개</a></li>   
+                        <li class="nav-item"><a class="nav-link" href="#contact">도입문의</a></li>
                         <li class="nav-item"><a class="nav-link" href="./imageEditor.html" target='_blank'>Customizing</a></li>
                         <li class="nav-item"><a class="nav-link" href="./3D_Card.html" target='_blank'>3D VIEW</a></li>
                     </ul>
@@ -185,7 +184,7 @@
         </section>
 
 
-        <div class="skw-pages">
+        <div class="skw-pages" id="skw">
             <div class="skw-page skw-page-1 active">
                 <div class="skw-page__half skw-page__half--left">
                     <div class="skw-page__skewed">
@@ -195,7 +194,7 @@
                 <div class="skw-page__half skw-page__half--right">
                     <div class="skw-page__skewed">
                         <div class="skw-page__content">
-                            <h2 class="skw-page__heading">복지제도 도입에 있어 고려해야될 부분은?</h2>
+                            <h2 class="skw-page__heading">복지제도 도입에<br> 고려해야될 부분은?</h2>
                         </div>
                     </div>
                 </div>
@@ -207,7 +206,7 @@
                             <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite animate__fast" style="font-size:3.5rem; position:relative; left:300px; top: 50px;">쉬운 관리</h2>
                             <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite animate__slow" style="font-size:2rem; position:relative; right:200px;">사원증</h2>
                             <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite" style="font-size:3rem; position:relative;">하나로 통합</h2>
-                            <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite" style="font-size:2.5rem; position:relative; left: 400px; bottom:30px;">법인카드</h2>
+                            <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite" style="font-size:2.5rem; position:relative; left: 350px; bottom:30px;">법인카드</h2>
                             <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite" style="font-size:2.7rem; position:relative; right: 150px;">출입증</h2>
                             <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite animate__slower" style="font-size:1.5rem; position:relative; left:250px;">교통카드</h2>
                             <h2 class="skw-page__heading animate__animated animate__pulse animate__infinite animate__faster" style="font-size:4.5rem; position:relative; right:150px;">도입비 0원</h2>
@@ -230,11 +229,13 @@
             <div class="container">
                 <div class="row gx-5">
                     <div class="col">
-                        <div class="card card1">
+                        <div class="card card1" id="about">
                             <span>나만의 디자인</span><br>
                             <span style="font-size: 1rem;">코나BIZ에서 제공하는 기본 템플릿 뿐만 아니라, 직접 디자인을 만들어보며 감각적인 카드를 만들어보세요!</span><br>
-                            <button type="button" class="btn btn-danger buttons" id="button0" onclick="window.open('./imageEditor.html')">나만의 카드 만들어보기</button>
-                            <button type="button" class="btn btn-danger buttons" id="button1" onclick="window.open('./3D_Card.html')">3D VIEW</button>
+                            <button type="button" class="btn btn-danger buttons" id="button0" onclick="window.open('./imageEditor.html')">
+                                나만의 카드 만들어보기
+                            </button>
+                            <button type="button" class="btn btn-danger buttons" id="button1" onclick="window.open('./3D_Card.html')">3D VIEW 미리보기</button>
                         </div>
                     </div>
                     <div class="col">
@@ -272,14 +273,14 @@
             </div>
         </section>
 
-        <section class="page-section">
+        <section class="page-section" >
             <!-- 아울 캐러셀 불러오기 -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
             <!-- 슬라이더 1 -->
             <div class="my-slider-1 w-75">
-                <div class="owl-carousel owl-theme">
+                <div class="owl-carousel owl-theme" id="carousel">
                     <div class="item">
                         <img src="assets/img/example-card/1.png" alt=""/>
                     </div>
@@ -524,9 +525,7 @@
                     <h2 class="section-heading text-uppercase">도입문의</h2>
                     <h3 class="section-subheading" style="color: aliceblue;">궁금한 사항을 물어보세요!</h3>
                 </div>
-                <!-- * * * * * * * * * * * * * * *-->
                 <!-- * * SB Forms Contact Form * *-->
-                <!-- * * * * * * * * * * * * * * *-->
                 <!-- This form is pre-integrated with SB Forms.-->
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->

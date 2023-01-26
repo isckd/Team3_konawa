@@ -169,11 +169,11 @@ function MySlider2__init() {
       console.log(sc_2);
       if (scrolling) return;
       if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
-        if(sc_2 > -10 && sc_2 < 100) {
+        if(sc_2 > -30 && sc_2 < 100) {
           navigateUp();
         }
       } else { 
-        if(sc_2 > -10 && sc_2 < 100) {
+        if(sc_2 > -30 && sc_2 < 100) {
           navigateDown();
         }  
       }
