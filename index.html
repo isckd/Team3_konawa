@@ -21,25 +21,61 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <style>
-            .card {
-                border-radius:20px; 
-                border:none !important;
-                height: 600px;
-                padding: 2rem;
-                margin-bottom: 2rem;
-                box-shadow: 10px 10px 30px 2px lightgrey;
+            
+            
+            a {
+                text-decoration: none;
             }
-            .card1 {
+            .card-small {
+                overflow:hidden;
+                border-radius:20px;
+                border:none !important;
+                height: 280px;
+                box-shadow: 10px 10px 30px 2px lightgrey;
+                padding: 1rem;
+                padding-left: 1.5rem;
+                margin-bottom: 40px;
+                cursor: pointer;
+            }
+            .card-big {
+                overflow:hidden;
+                border-radius:20px;
+                border:none !important;
+                padding: 1rem;
+                padding-left: 1.5rem;
+                height:600px;
+                box-shadow: 10px 10px 30px 2px lightgrey;
+                cursor: pointer;
+            }
+            .card-small img {
+                border-radius: 6px;
+            }
+            .card-big img {
+                border-radius: 10px;
+            }
+            .card-1 {
                 background: rgb(242,195,188);
                 background: linear-gradient(0deg, rgba(242,195,188,1) 0%, rgba(235,229,217,1) 100%);
             }
-            .card2 {
-                box-shadow: 10px 10px 30px 2px lightgrey;
+            .card-2 {
+                background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
             }
-            .card3 {
+            .card-4 {
                 background: #EDEDED;
             }
-            
+            .card-1:hover {
+                background: rgb(252, 197, 197);
+            }
+            .card-2:hover {
+                background: rgb(195, 230, 233);
+            }
+            .card-3:hover {
+                background: rgba(230, 236, 220, 0.596);
+            }
+            .card-4:hover {
+                background: rgba(102, 97, 97, 0.212);
+            }
+
             .ccp { 
                 height:29rem;
                 border-radius: 1rem;
@@ -75,53 +111,17 @@
             .navbar {
                 backdrop-filter: blur(0px);
             }
-            .buttons {
-                border-radius: 20px; 
-                border:none;
-                height: 400px;
-                font-size: 1.5rem;
-                font-weight: 700;
-                color: rgb(109, 102, 102);
-            }
-            #button0 { 
-                background: rgb(232, 178, 178) url(./assets/img/main-page/button_background1.png) no-repeat 100% 0%/50%;
-                margin-bottom: 1rem;
-            }
-            #button1 { 
-                background: rgb(199, 121, 121) url(./assets/img/main-page/button_background2.png) no-repeat 0% 50%/50%;
-            }
-            #button2 {
-                margin-top: 20px;
-                background: rgb(235, 235, 235) url(./assets/img/main-page/button_background3.png) no-repeat 50% 50%/100%;
-            }
-            #button3 {
-                background: rgb(253, 253, 253) url(./assets/img/main-page/button_background4.png) no-repeat 50% 50%/100%;
-            }
-            #button0:hover {
-                background-color: rgb(159, 110, 110);
-            }
-            #button1:hover {
-                background-color: rgb(180, 144, 144);
-            }
-            #button2:hover {
-                background-color: rgb(212, 212, 212);
-            }
-            #button3:hover {
-                background-color: rgb(241, 241, 241);
-            }
+            
             .nav-link {
                 font-weight: 900;
             }
-            #mainNav .navbar-nav {
-                
+            #mainNav .navbar-nav {   
                 display: none;
             }
             
         </style>
         <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
-        <script>
 
-        </script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -196,40 +196,65 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 
-        <!-- section class 에 bg-light 뺌 -->
-        <section class="page-section">
+        <!-- 새로만드는 About -->
+        <section class="page-section" style="margin-top:10rem;">
             <div class="container">
                 <div class="row gx-5">
+                    <div id="about" style="text-align:center; margin-bottom: 3rem;"><h1>WHY <label style="color:red;">KONA?</label></h1></div>
                     <div class="col">
-                        <div class="card card1" id="about">
-                            <span>나만의 디자인</span><br>
-                            <span style="font-size: 1rem;">코나BIZ에서 제공하는 기본 템플릿 뿐만 아니라, 직접 디자인을 만들어보며 감각적인 카드를 만들어보세요!</span><br>
-                            <button type="button" class="btn btn-danger buttons" id="button0" onclick="window.open('./imageEditor.html')">
-                                나만의 카드 만들어보기
-                            </button>
-                            <button type="button" class="btn btn-danger buttons" id="button1" onclick="window.open('./3D_Card.html')">3D VIEW 미리보기</button>
-                        </div>
+                        <a href="./imageEditor.html" target="_blank">
+                            <div class="card-small card-1">
+                                <div>
+                                    <span>우리 회사만의 디자인</span><br><br>
+                                    <span style="font-size: 1rem;">코나BIZ에서 제공하는<br> 기본 템플릿 뿐만 아니라, <br> 직접 디자인해보며 <br>감각적인 카드를 만들어보세요!</span><br>
+                                </div>
+                                <div style="margin-top: 2rem;">
+                                    <span id="cardLink-1" style="font-size: 1.2rem;">우리 회사만의 카드 만들기</span>
+                                </div>
+                                <img src="./assets/img/main-page/button_background1.png" style="width:10rem; position:relative; left:14rem; bottom:11rem;">
+                            </div>
+                        </a>
+                        <a href="./3D_Card.html" target="_blank">
+                            <div class="card-small card-2">
+                                <span>3D 미리보기</span><br><br>
+                                <span style="font-size: 1rem;">실제로 카드가 <br>어떻게 생겼는지 궁금하신가요? <br> 3D VIEW로 살펴보세요!</span><br>
+                                <div style="margin-top: 2rem;">
+                                    <span id="cardLink-2" style="font-size: 1.2rem;">3D VIEW 체험하기</span>
+                                </div>
+                                <img src="./assets/img/main-page/button_background2.png" style="width:10rem; position:relative; left:14rem; bottom:9rem;">
+                            </div>
+                        </a>
                     </div>
                     <div class="col">
-                        <div class="card card2">
-                            <span>부담없는 운영비용</span><br>
-                            <span style="font-size: 1rem;">도입비 : 0원, 운영비 0원!</span><br>
-                            <button type="button" class="btn btn-danger buttons" id="button2" onclick="window.open('https://konai.oopy.io/d8d928ad-38f1-4196-80ca-6f01566cf848')">도입 사례 살펴보기</button>
-                        </div>
+                        <a href='https://konai.oopy.io/d8d928ad-38f1-4196-80ca-6f01566cf848' target="_blank">
+                            <div class="card-big card-3">
+                                <span>부담없는 운영비용</span><br><br>
+                                <span style="font-size: 1rem;">도입비 : 0원, <br>운영비 : 0원, <br> 오로지 카드제작비가 전부!<br><br></span>
+                                <div style="margin-top: 5rem; text-align:center;">
+                                    <span id="cardLink-3" style="font-size:1.5rem;">도입 사례 살펴보기</span>
+                                </div>
+                                <img src="./assets/img/main-page/button_background3.png" style="width:20rem; position:relative; left:1rem; top:.5rem;">
+                            </div>
+                        </a>
                     </div>
                     <div class="col">
-                        <div class="card card3">
-                            <span>제한없는 사용처</span><br>
-                            <span style="font-size: 1rem;">복지몰의 한정된 사용처에 지치셨나요? 임직원분들에게 마음껏 사용할 수 있는 복지카드를 제공해보세요! </span><br>
-                            <span style="font-size: 1rem;">물론 관리자가 제한업종도 간편하게 설정 가능합니다!</span><br>
-                            <button type="button" class="btn btn-danger buttons" id="button3" onclick="window.open('https://konai.oopy.io/93ecfd08-f54d-4356-9ce8-3af2985cb866')">도입 사례 살펴보기</button>
-                        </div>
+                        <a href="https://konai.oopy.io/93ecfd08-f54d-4356-9ce8-3af2985cb866'" target="_blank">
+                            <div class="card-big card-4">
+                                <span>제한없는 사용처 <br> + 사원증 & 교통카드</span><br><br>
+                                <span style="font-size: 1rem;">복지몰의 한정된 사용처에 지치셨나요?<br> 임직원분들에게 마음껏 사용할 수 있는<br> 복지카드를 제공해보세요! </span><br>
+                                <span style="font-size: 1rem;">물론 관리자가 제한업종도 간편하게 설정 가능하고, <br> 사원증과 교통카드 기능은 덤이죠!</span>
+                                <div style="margin-top: .5rem; text-align:center;">
+                                    <span id="cardLink-4" style="font-size:1.5rem;">도입 사례 살펴보기</span>
+                                </div>
+                                <img src="./assets/img/main-page/button_background4.png" style="width:20rem; position:relative; left:1rem; top:.5rem;">
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
-
+                
             <div class="container ccpContainer">
                 <div class="row gx-5">
                     <div class="col">
@@ -481,7 +506,7 @@
                             <span class="white-size" style="font-size: 1rem;">▼</span>
                         </summary>
                         <h4 class="mention-ex div-padding">
-                           직원들이 필요하고 원하는 곳에서 현금처럼 복지포인트를 사용할 수 있습니다.
+                            직원들이 필요하고 원하는 곳에서 현금처럼 복지포인트를 사용할 수 있습니다.
                         </h4>
                     </details>
                     <details>

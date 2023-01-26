@@ -201,11 +201,45 @@ function MySlider2__init() {
         navigateDown();
     }
     });
-
-
 });
 
 
+// card Hover
+$('.card-1').hover(
+  function() {
+      $('#cardLink-1', this).css('color', 'white');
+  },
+  function() {
+      $('#cardLink-1', this).css('color', 'rgb(109, 102, 102)');
+  }
+);
+$('.card-2').hover(
+  function() {
+      $('#cardLink-2', this).css('color', 'white');
+      console.log("ㅎㅇ");
+  },
+  function() {
+      $('#cardLink-2', this).css('color', 'rgb(109, 102, 102)');
+  }
+);
+$('.card-3').hover(
+  function() {
+      $('#cardLink-3', this).css('color', 'rgb(0, 0, 0)');
+      console.log("ㅎㅇ");
+  },
+  function() {
+      $('#cardLink-3', this).css('color', 'rgb(109, 102, 102)');
+  }
+);
+$('.card-4').hover(
+  function() {
+      $('#cardLink-4', this).css('color', 'white');
+      console.log("ㅎㅇ");
+  },
+  function() {
+      $('#cardLink-4', this).css('color', 'rgb(109, 102, 102)');
+  }
+);
 
 
 //   typeit
