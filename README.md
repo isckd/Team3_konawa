@@ -5,6 +5,7 @@
 - 랜딩페이지 'HR관리자는 이런 복지를 원해요' -> HR 관리자 + 임직원을 포함한 단어 구상해보기
 - 윗부부 CSS 속성 추가하기 (https://codemyui.com/hero-image-slider-scroll-animation/)
 - 랜딩페이지 navbar 링크 설정
+- 랜딩페이지 navbar 초기에 링크 안보이게
 - 이미지에디터, 3D Card View 설명서 작성하기
 - 랜딩페이지 최상단 동영상 추가하기
 # 진행상황 공유
