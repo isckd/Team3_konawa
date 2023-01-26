@@ -7,7 +7,7 @@
 - 랜딩페이지 navbar 링크 설정
 - 랜딩페이지 navbar 초기에 링크 안보이게
 - 이미지에디터, 3D Card View 설명서 작성하기
-- 랜딩페이지 최상단 동영상 추가하기
+- 랜딩페이지 최상단 동영상 추가하기 -> 동영상 소리는 한 번만 나오게.
 # 진행상황 공유
 - 이미지 에디터(filerobot) 기본 틀 잡아놓음.  -> 기본페이지 navbar의 CUSTOMIZING 탭<br>
 - 3D VIEW(three.js) 대충 기본 틀 잡아놓음. -> 기본페이지 navbar의 3D VIEW 탭<br>
