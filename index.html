@@ -39,42 +39,19 @@
             .card3 {
                 background: #EDEDED;
             }
-            .card4 {
-                background: rgb(238,240,245);
-                background: linear-gradient(270deg, rgba(238,240,245,1) 0%, rgba(243,244,249,1) 0%, rgba(197,201,222,1) 100%);
-            }
-            .card5 {
-                background: linear-gradient(103.7deg, rgb(192, 208, 250) -9.4%, rgb(225, 213, 233) 68.79%, rgb(233, 192, 234) 105.12%);
-            }
-            .card6 {
-                background: rgb(238,245,239);
-                background: radial-gradient(circle, rgba(238,245,239,1) 0%, rgba(226,236,222,1) 100%);
-            }
-            .card7 {
-                background: rgb(75,74,84);
-                background: linear-gradient(270deg, rgba(75,74,84,1) 0%, rgba(103,115,129,1) 100%);
-            }
-            .card8 {
-                background-color: #DCD9D4;
-                background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%);
-                background-blend-mode: soft-light,screen;
-            }
-            .card9 {
-                background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
-            }
-            .card10 {
-                background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
-            }
-            .card11 {
-                background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
-            }
-            .card12 {
-                background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            }
-            .card13 {   
-                background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-            }
             
+            .ccp { 
+                height:29rem;
+                border-radius: 1rem;
+                display: inline-block;
+                margin-left: 4rem;
+                box-shadow: 5px 5px 20px 2px lightgrey;
+            }
+
+            #ccpSpan {
+                color:black;
+            }
+
             span {
                 font-weight: 700;
                 font-size: 2rem;
@@ -96,7 +73,7 @@
                 color:rgb(248, 240, 240) !important;
             }
             .navbar {
-                backdrop-filter: blur(10px);
+                backdrop-filter: blur(0px);
             }
             .buttons {
                 border-radius: 20px; 
@@ -132,7 +109,19 @@
             #button3:hover {
                 background-color: rgb(241, 241, 241);
             }
+            .nav-link {
+                font-weight: 900;
+            }
+            #mainNav .navbar-nav {
+                
+                display: none;
+            }
+            
         </style>
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+        <script>
+
+        </script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -153,30 +142,13 @@
                 </div>
             </div>
         </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <!-- typeit cdn -->
-            <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="masthead-subheading left-gray">#복지에 기술을 더해</div>
-                        <br/>
-                        <div class="masthead-heading text-uppercase" id="type-title" style="font-size: 3rem;"></div>
-                        <div id="tag-title" style="font-size: 1rem;"></div>
-                    </div>
-                    <div class="col-md-6">
-                        <video class ="my-video" autoplay muted loop>
-                            <source src="video/testvideo.mp4" type="video/mp4" />
-                            Your browser is not supported!
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <video id="myVideo" class ="my-video" autoplay>
+            <source src="video/testvideo.mp4" type="video/mp4" />
+            Your browser is not supported!
+        </video>
 
-        <section class="page-section">
-            <div class="container" style="text-align:center;">
+        <section class="page-section" style="height:840px; padding:0; padding-top: 350px;">
+            <div class="container" style="text-align:center; vertical-align:middle;">
                 <h1 class="display-4" style="font-weight:700;">특별한 복지의 시작</h1>
                 <span class="display-4" style="font-weight:700; color:red;">KONA BIZ</span>
                 <span class="display-4" style="font-weight:700; color:black;"> 로부터</span>
@@ -256,11 +228,17 @@
                 </div>
             </div>
 
-            <div class="container">
+            <div class="container ccpContainer">
                 <div class="row gx-5">
                     <div class="col">
-                        <div class="card card4">
-                            <span>그라데이션</span>
+                        <div style="margin-bottom: 3rem; text-align:center; margin-top: 4rem;">
+                            <span style="margin-bottom: 2rem;" id="ccpSpan">관리자페이지</span><br>
+                            <span>등록, 수정, 지급/회수를 편리하게</span>
+                        </div>    
+                        <div style="margin-left:5%">
+                            <img class="ccp" src="./assets/img/main-page/ccp1.png">
+                            <img class="ccp" src="./assets/img/main-page/ccp2.png">
+                            <img class="ccp" src="./assets/img/main-page/ccp3.png">
                         </div>
                     </div>
                 </div>
