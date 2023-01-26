@@ -1,3 +1,4 @@
+
 const container = document.getElementById("image-editor");
 const config = {
   source: "../assets/img/template/00.png",
@@ -35,15 +36,15 @@ function template(img) {
         "bg-secondary": "#2B2929",
         "bg-primary-hover": "#e4faa9",
         "bg-primary-0-5-opacity" : "#e4faa9",
-  
+        
         "txt-primary": "#F7F5F2",
         "txt-secondary": "#F7F5F2",
         "active-secondary-hover": "#df8807",
         "accent-primary-hover": "#df8807",
-        "accent-primary-active": "#000000",
+        "accent-primary-active": "#df8807",
         "icons-primary": "#d851a2",
         "icons-secondary": "#d851a2",
-        "link-hover": "yellow"
+        "link-hover": "yellow",
   
       },
       typography: {
@@ -53,9 +54,10 @@ function template(img) {
   });
 }
 
-function darkmode() {
 
-}
+
+
+
 ImageEditor.render({
   // additional config provided while rendering
   observePluginContainerSize: true,

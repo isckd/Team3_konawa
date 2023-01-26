@@ -216,7 +216,7 @@ $('.card-1').hover(
 $('.card-2').hover(
   function() {
       $('#cardLink-2', this).css('color', 'white');
-      console.log("ㅎㅇ");
+
   },
   function() {
       $('#cardLink-2', this).css('color', 'rgb(109, 102, 102)');
@@ -225,7 +225,7 @@ $('.card-2').hover(
 $('.card-3').hover(
   function() {
       $('#cardLink-3', this).css('color', 'rgb(0, 0, 0)');
-      console.log("ㅎㅇ");
+
   },
   function() {
       $('#cardLink-3', this).css('color', 'rgb(109, 102, 102)');
@@ -234,7 +234,6 @@ $('.card-3').hover(
 $('.card-4').hover(
   function() {
       $('#cardLink-4', this).css('color', 'white');
-      console.log("ㅎㅇ");
   },
   function() {
       $('#cardLink-4', this).css('color', 'rgb(109, 102, 102)');
