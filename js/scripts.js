@@ -1,8 +1,9 @@
-const video = document.querySelector('video');
-video.addEventListener('ended', (event) => {  
-  video.play();
-  video.muted = true;
-});
+// const video = document.querySelector('video');
+
+// video.addEventListener('ended', (event) => {  
+//   video.play();
+//   video.muted = true;
+// });
 
 
 // 흐려지는 글씨

@@ -142,11 +142,13 @@
                 </div>
             </div>
         </nav>
-        <video id="myVideo" class ="my-video" autoplay>
+        <video id="myVideo" class ="my-video" autoplay loop muted>
             <source src="video/testvideo.mp4" type="video/mp4" />
             Your browser is not supported!
         </video>
-
+        <script>
+            document.getElementById('myVideo').play();
+        </script>
         <section class="page-section" style="height:840px; padding:0; padding-top: 350px;">
             <div class="container" style="text-align:center; vertical-align:middle;">
                 <h1 class="display-4" style="font-weight:700;">특별한 복지의 시작</h1>
