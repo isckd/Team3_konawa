@@ -32,3 +32,22 @@ https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoe
 - 이쁜 백그라운드 이미지를 생성해주는 사이트 https://coolbackgrounds.io/ <br>
 - CSS 애니메이션 적용 도와주는 사이트 https://animate.style/
 - 무료 이미지 편집기(웹사이트에서 구현X, 그냥 프로그램) https://www.gimp.org/
+
+
+gantt
+    랜딩페이지 개발 일정
+    화면 디자인  : a1, 2023-01-16, 4d
+    개발  : a2, 2023-01-18, 8d
+ 
+## 📖 Gantt :fire:
+
+```mermaid
+gantt
+    section 개발 일정
+    분석/설계  : a1, 2022-08-24, 2d
+    테이터베이스  : a2, after a1, 2d
+    백엔드 : a3, after a2, 18d
+    화면UI : a4, after a3, 5d
+    스크립트 기능 : a5, after a4, 4d
+    테스트 및 배포 : a6, after a5, 4d
+```
