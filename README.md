@@ -39,7 +39,7 @@ https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoe
 ```mermaid
     gantt
     title 랜딩페이지 개발 일정
-    section Section
+    section 개발 일정
     화면 디자인  : a1, 2023-01-16, 4d
     개발  : a2, 2023-01-18, 8d
  
