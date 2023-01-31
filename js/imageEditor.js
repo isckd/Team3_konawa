@@ -6,6 +6,7 @@ const config = {
 };
 const ImageEditor = new window.FilerobotImageEditor(container, config);
 
+// 탬플릿 설정할 때마다 페이지 리로딩, 테마 재설정
 function template(img) {
   let image = document.createElement("IMG");
   image.src = img.src;
@@ -29,6 +30,7 @@ function template(img) {
     annotationsCommon: {
       fill: "black"
     },
+    // 테마 설정. 원래 기본은 흰색 바탕임.
     theme: {
       palette: {
         "bg-primary-active": "#e4faa9",

@@ -10,6 +10,104 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
 
 
+/* 서비스 소개 파트 */
+a {
+  text-decoration: none !important;
+}
+.card-small {
+  overflow:hidden;
+  border-radius:20px;
+  border:none !important;
+  height: 240px;
+  box-shadow: 10px 10px 30px 2px lightgrey;
+  padding: 1rem;
+  padding-left: 1.5rem;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+.card-big {
+  overflow:hidden;
+  border-radius:20px;
+  border:none !important;
+  padding: 1rem;
+  padding-left: 1.5rem;
+  height:520px;
+  box-shadow: 10px 10px 30px 2px lightgrey;
+  cursor: pointer;
+}
+.card-small img {
+  border-radius: 6px;
+}
+.card-big img {
+  border-radius: 10px;
+}
+.card-1 {
+  background: rgb(242,195,188);
+  background: linear-gradient(0deg, rgba(242,195,188,1) 0%, rgba(235,229,217,1) 100%);
+}
+.card-2 {
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+.card-4 {
+  background: #EDEDED;
+}
+.card-1:hover {
+  background: rgb(252, 197, 197);
+}
+.card-2:hover {
+  background: rgb(195, 230, 233);
+}
+.card-3:hover {
+  background: rgba(230, 236, 220, 0.596);
+}
+.card-4:hover {
+  background: rgba(102, 97, 97, 0.212);
+}
+
+.ccp { 
+  height:29rem;
+  border-radius: 1rem;
+  display: inline-block;
+  
+  box-shadow: 5px 5px 20px 2px lightgrey;
+}
+
+#ccpSpan {
+  color:black;
+}
+
+span {
+  font-weight: 700;
+  font-size: 2rem;
+  color: rgb(109, 102, 102);
+  line-height: 1.5;     
+}
+
+/* "KONA BIZ와 함께하는" */
+#sticky-div{
+  position: -webkit-sticky; /* Safari */
+  position:sticky;
+  top: 20rem;
+}
+#sticky-span{
+  font-size: 72px;
+  background: -webkit-linear-gradient(rgb(255, 0, 0), rgb(231, 63, 63));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* navbar 추가설정 */
+.navbar {
+  backdrop-filter: blur(0px);
+}
+
+.nav-link {
+  font-weight: 900;
+}
+#mainNav .navbar-nav {   
+  display: none;
+}
+
 /* 대각선 슬라이드 */
 body {
   background: #15181A;
@@ -132,10 +230,6 @@ body {
   border:none !important;
 }
 
-/* 회색 */
-.left-gray{
-  color: gray;
-}
 /* video*/
 #myVideo {
   width: 100%;
@@ -144,7 +238,7 @@ body {
   margin: 0px auto; 
   /* position: relative; */
 }
-/* carousel */
+/* 캐러셀 */
 .my-slider-1 {
   margin-top:100px;
   

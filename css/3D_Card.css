@@ -1,4 +1,40 @@
+/* Pretendard 폰트 */
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+/* 상단 바 CSS */
+.colorInput {
+	margin-left: 20px;
+	border-radius: 20px;
+	border: solid white 1px;
+	background-color: transparent;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width:200px;
+	height:50px;
+	cursor:pointer;
+}
+.colorInput::-webkit-color-swatch {
+	border-radius: 15px;
+	border:none;
+}
+.colorInput::-moz-color-swatch {
+	border-radius: 15px;
+	border:none;
+}
+.colorInput:hover {
+	border: solid black 2px;
+}
+
+.reset {
+	background-color: inherit;
+	border-radius: 20px;
+	border: solid black 1px;
+	color: white;
+	margin-left: 20px;
+	position: relative;
+	top: -10px;
+}
 
 body {
 	margin: 0;
@@ -27,6 +63,7 @@ body {
 	margin-left: 20px;
 	font-weight: bold;
 }
+/* ------------------------------------ */
 
 a {
 	color: #ff0;
