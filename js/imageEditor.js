@@ -34,19 +34,18 @@ function template(img) {
     theme: {
       palette: {
         "bg-primary-active": "#e4faa9",
-        "bg-primary": "#000000",
-        "bg-secondary": "#2B2929",
-        "bg-primary-hover": "#e4faa9",
-        "bg-primary-0-5-opacity" : "#e4faa9",
-        
-        "txt-primary": "#F7F5F2",
-        "txt-secondary": "#F7F5F2",
-        "active-secondary-hover": "#df8807",
-        "accent-primary-hover": "#df8807",
-        "accent-primary-active": "#df8807",
-        "icons-primary": "#d851a2",
-        "icons-secondary": "#d851a2",
-        "link-hover": "yellow",
+      "bg-primary": "#000000",
+      "bg-secondary": "#2B2929",
+      "bg-primary-hover": "#e4faa9",
+      "bg-primary-0-5-opacity" : "#7022ee",
+
+      'txt-primary': "#9cc7e0",
+      'txt-secondary': "#9cc7e0", // 버튼 txt
+      "active-secondary-hover": "#df8807",
+      "accent-primary-hover": "#df8807",
+      "accent-primary-active": "#000000",
+      "icons-primary": "#9cc7e0",
+      "icons-secondary": "#d851a2",
   
       },
       typography: {
@@ -81,17 +80,15 @@ ImageEditor.render({
       "bg-primary": "#000000",
       "bg-secondary": "#2B2929",
       "bg-primary-hover": "#e4faa9",
-      "bg-primary-0-5-opacity" : "#e4faa9",
+      "bg-primary-0-5-opacity" : "#7022ee",
 
-      "txt-primary": "#F7F5F2",
-      "txt-secondary": "#F7F5F2",
+      'txt-primary': "#9cc7e0",
+      'txt-secondary': "#9cc7e0", // 버튼 txt
       "active-secondary-hover": "#df8807",
       "accent-primary-hover": "#df8807",
       "accent-primary-active": "#000000",
-      "icons-primary": "#d851a2",
+      "icons-primary": "#9cc7e0",
       "icons-secondary": "#d851a2",
-      "link-hover": "yellow"
-
     },
     typography: {
       fontFamily: "Atlas Grotesk,Roboto, Arial"
