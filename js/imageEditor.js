@@ -2,7 +2,6 @@
 const container = document.getElementById("image-editor");
 const config = {
   source: "../assets/img/template/00.png",
-  soruce2: ""
 };
 const ImageEditor = new window.FilerobotImageEditor(container, config);
 
@@ -29,6 +28,15 @@ function template(img) {
     },
     annotationsCommon: {
       fill: "black"
+    },
+    Text: {
+      text : '텍스트를 입력해보세요!',
+      fonts: [  // 여기서 텍스트 입력칸에서 폰트 추가 적용 가능
+        { label: 'Arial', value: 'Arial' },
+        'Sans-serif',
+        'pretendard',
+        { label: 'Comic Sans', value: 'Comic-sans' },
+      ]
     },
     // 테마 설정. 원래 기본은 흰색 바탕임.
     theme: {
@@ -73,6 +81,15 @@ ImageEditor.render({
   },
   annotationsCommon: {
     fill: "black"
+  },
+  Text: {
+    text : '텍스트를 입력해보세요!',
+    fonts: [  // 여기서 텍스트 입력칸에서 폰트 추가 적용 가능
+      { label: 'Arial', value: 'Arial' },
+      'Sans-serif',
+      'pretendard',
+      { label: 'Comic Sans', value: 'Comic-sans' },
+    ]
   },
   theme: {
     palette: {
