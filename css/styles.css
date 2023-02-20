@@ -76,13 +76,6 @@ a {
   color:black;
 }
 
-span {
-  font-weight: 700;
-  font-size: 2rem;
-  color: rgb(109, 102, 102);
-  line-height: 1.5;     
-}
-
 /* "KONA BIZ와 함께하는" */
 #sticky-div{
   position: -webkit-sticky; /* Safari */
